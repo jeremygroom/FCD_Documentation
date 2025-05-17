@@ -1,9 +1,11 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Welcome to the documentation for the Forest Carbon Dashboard. The Forest Carbon Dashboard conveys the state of carbon and carbon change (flux) for regions of land. The United States Department of Agriculture's [Forest Inventory Analysis Program](https://research.fs.usda.gov/programs/fia) generates the information used in the dashboard. The information is processed and provided by FIA staff to regional (i.e., state-level) parties such as [Cal Fire](https://www.fire.ca.gov/). Cal Fire and the Oregon Department of Forestry (another user of this information) produce reports that provide summaries of ecosystem carbon for their regions on a semi-annual basis. One example is the report by @christensen2019ab. The motivation for the dashboard is the effort and size of the report: automating the process to the extent possible provides both publishers and readers with an efficient way to approach the sizable amount of data these projects generate. The motivation for this document is to provide users with an understanding of how to use the dashboard and how they can upload and view their own information.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+The goal of the dashboard is to make ecosystem carbon data accessible to all. This includes the ability of users to browse and specify which data tables and figures they would like to use, and download the figures and the source data. It also includes the ability of users to upload their own data.
 
-```{r}
-1 + 1
-```
+# Acknowledgements
+
+Many thanks to Nadia Tase (California Department of Forestry and Fire Protection - CAL FIRE) and Olaf Kuegler (USDA Forest Service, Retired) for supporting the development of this work through feedback, discussion, and data revision. Amanda Reynolds (CAL FIRE) provided administrative support. This work builds upon the many revisions and iterations of the AB 1504 California Forest Ecosystem and Harvested Wood Product Carbon Inventory reports. ***Who at CalFire did the figure coding?***
+
+This project was funded by the California Department of Forestry and Fire Protection Purchase Order 3540-0000678085.

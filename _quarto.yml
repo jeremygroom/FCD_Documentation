@@ -3,13 +3,18 @@ project:
   output-dir: docs
 
 book:
-  title: "FCD_Documentation"
+  title: "Forest Carbon Dashboard Documentation"
   author: "Jeremiah Groom and Nadia Tase"
   date: "5/16/2025"
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - app_usage.qmd
+    - data_prep.qmd
+    - app_upload.qmd
+    - comp_process.qmd
+    - faq_troubleshooting.qmd
+    - version_info.qmd
     - references.qmd
 
 bibliography: references.bib

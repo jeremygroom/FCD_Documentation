@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "FCD_Documentation",
+    "title": "Forest Carbon Dashboard Documentation",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Preface\nWelcome to the documentation for the Forest Carbon Dashboard. The Forest Carbon Dashboard conveys the state of carbon and carbon change (flux) for regions of land. The United States Department of Agriculture’s Forest Inventory Analysis Program generates the information used in the dashboard. The information is processed and provided by FIA staff to regional (i.e., state-level) parties such as Cal Fire. Cal Fire and the Oregon Department of Forestry (another user of this information) produce reports that provide summaries of ecosystem carbon for their regions on a semi-annual basis. One example is the report by Christensen et al. (2021). The motivation for the dashboard is the effort and size of the report: automating the process to the extent possible provides both publishers and readers with an efficient way to approach the sizable amount of data these projects generate. The motivation for this document is to provide users with an understanding of how to use the dashboard and how they can upload and view their own information.\nThe goal of the dashboard is to make ecosystem carbon data accessible to all. This includes the ability of users to browse and specify which data tables and figures they would like to use, and download the figures and the source data. It also includes the ability of users to upload their own data.\n\n\nAcknowledgements\nMany thanks to Nadia Tase (California Department of Forestry and Fire Protection - CAL FIRE) and Olaf Kuegler (USDA Forest Service, Retired) for supporting the development of this work through feedback, discussion, and data revision. Amanda Reynolds (CAL FIRE) provided administrative support. This work builds upon the many revisions and iterations of the AB 1504 California Forest Ecosystem and Harvested Wood Product Carbon Inventory reports. Who at CalFire did the figure coding?\nThis project was funded by the California Department of Forestry and Fire Protection Purchase Order 3540-0000678085.\n\n\n\n\nChristensen, Glenn A, Andrew N Gray, Olaf Kuegler, Nadia A Tase, Mark Rosenberg, and Jeremy Groom. 2021. AB 1504 California Forest Ecosystem and Harvested Wood Product Carbon Inventory: 2019 Reporting Period Data Update. Sacramento, CA: California Department of Forestry; Fire Protection; California Board of Forestry; Fire Protection. https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf.",
     "crumbs": [
       "Preface"
     ]
@@ -34,9 +34,69 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Christensen, Glenn A, Andrew N Gray, Olaf Kuegler, Nadia A Tase, Mark\nRosenberg, and Jeremy Groom. 2021. AB 1504 California Forest\nEcosystem and Harvested Wood Product Carbon Inventory: 2019 Reporting\nPeriod Data Update. Sacramento, CA: California Department of\nForestry; Fire Protection; California Board of Forestry; Fire\nProtection. https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "version_info.html",
+    "href": "version_info.html",
+    "title": "7  Version Information",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Version Information</span>"
+    ]
+  },
+  {
+    "objectID": "comp_process.html",
+    "href": "comp_process.html",
+    "title": "5  Process Your Data Locally",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process Your Data Locally</span>"
+    ]
+  },
+  {
+    "objectID": "faq_troubleshooting.html",
+    "href": "faq_troubleshooting.html",
+    "title": "6  Frequently Asked Questions and Troubleshooting",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Frequently Asked Questions and Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "app_usage.html",
+    "href": "app_usage.html",
+    "title": "2  Dashboard Summary and Use",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dashboard Summary and Use</span>"
+    ]
+  },
+  {
+    "objectID": "data_prep.html",
+    "href": "data_prep.html",
+    "title": "3  Preparing Your Data",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preparing Your Data</span>"
+    ]
+  },
+  {
+    "objectID": "app_upload.html",
+    "href": "app_upload.html",
+    "title": "4  Uploading Your Data",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uploading Your Data</span>"
     ]
   }
 ]
