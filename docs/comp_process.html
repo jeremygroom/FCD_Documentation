@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -199,8 +165,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#running-the-standalone-code" id="toc-running-the-standalone-code" class="nav-link active" data-scroll-target="#running-the-standalone-code"><span class="header-section-number">5.1</span> Running the standalone code</a>
+  <ul class="collapse">
+  <li><a href="#code-outline" id="toc-code-outline" class="nav-link" data-scroll-target="#code-outline"><span class="header-section-number">5.1.1</span> <em>Code Outline</em></a></li>
+  <li><a href="#details-for-using-the-standalone-code-by-section" id="toc-details-for-using-the-standalone-code-by-section" class="nav-link" data-scroll-target="#details-for-using-the-standalone-code-by-section"><span class="header-section-number">5.1.2</span> <em>Details for using the Standalone Code by Section</em></a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -224,15 +200,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="running-the-standalone-code" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="running-the-standalone-code"><span class="header-section-number">5.1</span> Running the standalone code</h2>
+<p>The standalone code is provided so that users may generate their tables and figures without the aid of the Shiny app. We recommend reading this text alongside the opened Stand_Alone.R file. The user needs to make a few changes for the script to work.</p>
+<section id="code-outline" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="code-outline"><span class="header-section-number">5.1.1</span> <em>Code Outline</em></h3>
+<div id="fig-LABEL" class="quarto-float quarto-figure quarto-figure-center anchored" alt="ALT">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src=".\images/Standalone_dependencies.png" class="img-fluid figure-img" alt="ALT">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Data and code source files associated with Stand_Alone.R
+</figcaption>
+</figure>
 </div>
+<p>The Settings section in the standalone code relies on user input for reading data files correctly and sources the Functions.R script. If the user already has an RDS data file on hand, they can set options to skip the RDS-building step of ‘Create RDS File’.</p>
+<p>Within the ‘Create RDS File’ step the code runs a QA of the provided data files. The QA_Code.R script reads the Script_Control.xlsx file for setting information to check against the CSV data files. The Excel_to_RDS.R builds the input RDS file from Script_Control.xlsx settings and the CSV data files. If the user provides information about an HWP data set, the Excel_to_RDS.R script will source the HWP_Run.R script to include HWP data in the RDS file. The RDS file is saved locally.</p>
+<p>The ‘Read RDS file and load conditions’ section loads the RDS file and obtains settings from the RDS file. The standalone code can proceed with producing tables and figures. The ‘Produce figures and tables’ section sources individual figure and table scripts which each draw upon data from the RDS data file.</p>
+</section>
+<section id="details-for-using-the-standalone-code-by-section" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="details-for-using-the-standalone-code-by-section"><span class="header-section-number">5.1.2</span> <em>Details for using the Standalone Code by Section</em></h3>
+<p><em>Settings</em></p>
+<p>In the subsection “Enter values”, users must enter the <code>year.use</code> value which is the year of their dataset.<br>
+Users must also enter the <code>region.use</code> value, their region name. Note that this will produce text that matches the user’s folder/RDS name.</p>
+<p>If the user is loading existing data, the <code>EXISTING.RDS</code> needs to be set to TRUE. The script will look for the resulting RDS file. If <code>EXISTING.RDS</code> is set to FALSE, the script will attempt to read files and generate the RDS (giving it the name defined by <code>DATA.FOLDER.NAME</code>).</p>
+<p>If the user is wanting to generate a fresh RDS from their parent data folder, we recommend placing that folder in the repository/project directory folder “Data/”. That will make things operate in a more straightforward manner.</p>
+<p>Does the user want to have figure scripts save figures to a results folder? If so, <code>SAVE.PNG</code> option should be set to TRUE. This is an option because the Shiny app relies on the same figure code; there is no point for the figure code to internally save the images (users can download the figures from the app).</p>
+<p>The ‘Other settings’ subsection provides R with information on where folders are located. If the user is relying on the project file structure provided by the GitHub repository (recommended) then the user need not alter anything in this sub section.</p>
+<p>Leave the <code>SHINY.QA</code> setting at FALSE. This allows the Standalone code to save the RDS file. If TRUE, the RDS file will not be saved. The logic is that when the Shiny code compiles the data and performs the QA checks, there is no sense in having the code save the RDS file to the Shinyapps.io instance. The app user can instead click on a button and download the RDS file.</p>
+<p><em>Create RDS file</em></p>
+<p>This code may be run whether or not a new RDS file is desired. The code will be skipped if a new RDS is not wanted. If used, the code will rely on the information from above (file names) when it sources the QA_Code.R file. This will run the QA routine and write the QA_Report_Table.csv file. This file can be informative for determining process errors.</p>
+<p>The Excel_to_RDS.R script compiles the RDS file from the Script_Control.xlsx file, the CSV files, and (if selected and available) the output HWP files. The settings in the control file, Script_Controls.xlsx, will determine whether the HWP code is run and provide information for processing the tables and figures. The Excel_to_RDS.R script will save the output RDS file to the local directory.</p>
+<p><em>Read RDS File and Load Conditions</em></p>
+<p>The script reads the RDS file that had been created earlier or was recently created by the code for the previous section. The script also checks to see if the FMRL and LU folders are empty. This information is used to determine which tables and figures to produce below.</p>
+<p><em>Produce Figures and Tables</em></p>
+<p>The object <code>tabfig.run</code> is important. It will list which tables and figures the QA deems available. If a particular table or figure is not being produced (or produced with a ‘no data’ message) type in <code>tabfig.run</code> to see if the QA prevented the figure’s production, then backtrack to the QA_Report_Table.csv to see why this might be the case.</p>
+<p>Almost every figure and table is sourced from a separate file. The exceptions are tables and figures that rely on the same code or function to generate them. Users will likely select to save figure .png files (see above). The table code saves individual XLSX documents.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

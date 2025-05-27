@@ -1,7 +1,48 @@
 # Process Your Data Locally
 
-In summary, this book has no content whatsoever.
+## Running the standalone code
 
-```{r}
-1 + 1
-```
+The standalone code is provided so that users may generate their tables and figures without the aid of the Shiny app. We recommend reading this text alongside the opened Stand_Alone.R file. The user needs to make a few changes for the script to work.
+
+### *Code Outline*
+
+![Data and code source files associated with Stand_Alone.R](/images/Standalone_dependencies.png){#fig-LABEL fig-alt="ALT"}
+
+The Settings section in the standalone code relies on user input for reading data files correctly and sources the Functions.R script. If the user already has an RDS data file on hand, they can set options to skip the RDS-building step of ‘Create RDS File’.
+
+Within the ‘Create RDS File’ step the code runs a QA of the provided data files. The QA_Code.R script reads the Script_Control.xlsx file for setting information to check against the CSV data files. The Excel_to_RDS.R builds the input RDS file from Script_Control.xlsx settings and the CSV data files. If the user provides information about an HWP data set, the Excel_to_RDS.R script will source the HWP_Run.R script to include HWP data in the RDS file. The RDS file is saved locally.
+
+The ‘Read RDS file and load conditions’ section loads the RDS file and obtains settings from the RDS file. The standalone code can proceed with producing tables and figures. The ‘Produce figures and tables’ section sources individual figure and table scripts which each draw upon data from the RDS data file.
+
+### *Details for using the Standalone Code by Section*
+
+*Settings*
+
+In the subsection "Enter values", users must enter the `year.use` value which is the year of their dataset.\
+Users must also enter the `region.use` value, their region name. Note that this will produce text that matches the user’s folder/RDS name.
+
+If the user is loading existing data, the `EXISTING.RDS` needs to be set to TRUE. The script will look for the resulting RDS file. If `EXISTING.RDS` is set to FALSE, the script will attempt to read files and generate the RDS (giving it the name defined by `DATA.FOLDER.NAME`).
+
+If the user is wanting to generate a fresh RDS from their parent data folder, we recommend placing that folder in the repository/project directory folder “Data/”. That will make things operate in a more straightforward manner.
+
+Does the user want to have figure scripts save figures to a results folder? If so, `SAVE.PNG` option should be set to TRUE. This is an option because the Shiny app relies on the same figure code; there is no point for the figure code to internally save the images (users can download the figures from the app).
+
+The 'Other settings' subsection provides R with information on where folders are located. If the user is relying on the project file structure provided by the GitHub repository (recommended) then the user need not alter anything in this sub section.
+
+Leave the `SHINY.QA` setting at FALSE. This allows the Standalone code to save the RDS file. If TRUE, the RDS file will not be saved. The logic is that when the Shiny code compiles the data and performs the QA checks, there is no sense in having the code save the RDS file to the Shinyapps.io instance. The app user can instead click on a button and download the RDS file.
+
+*Create RDS file*
+
+This code may be run whether or not a new RDS file is desired. The code will be skipped if a new RDS is not wanted. If used, the code will rely on the information from above (file names) when it sources the QA_Code.R file. This will run the QA routine and write the QA_Report_Table.csv file. This file can be informative for determining process errors.
+
+The Excel_to_RDS.R script compiles the RDS file from the Script_Control.xlsx file, the CSV files, and (if selected and available) the output HWP files. The settings in the control file, Script_Controls.xlsx, will determine whether the HWP code is run and provide information for processing the tables and figures. The Excel_to_RDS.R script will save the output RDS file to the local directory.
+
+*Read RDS File and Load Conditions*
+
+The script reads the RDS file that had been created earlier or was recently created by the code for the previous section. The script also checks to see if the FMRL and LU folders are empty. This information is used to determine which tables and figures to produce below.
+
+*Produce Figures and Tables*
+
+The object `tabfig.run` is important. It will list which tables and figures the QA deems available. If a particular table or figure is not being produced (or produced with a ‘no data’ message) type in `tabfig.run` to see if the QA prevented the figure’s production, then backtrack to the QA_Report_Table.csv to see why this might be the case.
+
+Almost every figure and table is sourced from a separate file. The exceptions are tables and figures that rely on the same code or function to generate them. Users will likely select to save figure .png files (see above). The table code saves individual XLSX documents.

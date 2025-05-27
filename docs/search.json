@@ -10,43 +10,33 @@
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "app_usage.html",
+    "href": "app_usage.html",
+    "title": "2  Dashboard Summary and Use",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dashboard Summary and Use</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
+    "objectID": "data_prep.html",
+    "href": "data_prep.html",
+    "title": "3  Preparing Your Data",
     "section": "",
-    "text": "Christensen, Glenn A, Andrew N Gray, Olaf Kuegler, Nadia A Tase, Mark\nRosenberg, and Jeremy Groom. 2021. AB 1504 California Forest\nEcosystem and Harvested Wood Product Carbon Inventory: 2019 Reporting\nPeriod Data Update. Sacramento, CA: California Department of\nForestry; Fire Protection; California Board of Forestry; Fire\nProtection. https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "3.0.1 Your data folder\nUsers provide a suite of folders that follow this format:\n\n\n\n\n\n\nFigure 3.1: Required structure of data input folders and the script control Excel file.\n\n\n\nNotice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year, which is the user’s year of interest. This is important! The script will look for these files with these year.\nBe sure to include all of these folders! The code may get unhappy if they are missing. Include the folders but leave them empty if you have nothing to put in them (e.g., Annual_FMRL and LU 2020 may be specific to California and a few other states).\nThe USDA Forest Service FIA program personnel can provide the CSV files that populate these folders. It should be evident which go where (they will give you CSV Status and GRM CSV folders, for instance).\nWe will now spend a great deal of verbiage describing what goes into Script_Controls.xlsx.",
     "crumbs": [
-      "References"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preparing Your Data</span>"
     ]
   },
   {
-    "objectID": "version_info.html",
-    "href": "version_info.html",
-    "title": "7  Version Information",
+    "objectID": "app_upload.html",
+    "href": "app_upload.html",
+    "title": "4  Uploading Your Data",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Version Information</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uploading Your Data</span>"
     ]
   },
   {
@@ -54,7 +44,7 @@
     "href": "comp_process.html",
     "title": "5  Process Your Data Locally",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "5.1 Running the standalone code\nThe standalone code is provided so that users may generate their tables and figures without the aid of the Shiny app. We recommend reading this text alongside the opened Stand_Alone.R file. The user needs to make a few changes for the script to work.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process Your Data Locally</span>"
     ]
@@ -70,33 +60,33 @@
     ]
   },
   {
-    "objectID": "app_usage.html",
-    "href": "app_usage.html",
-    "title": "2  Dashboard Summary and Use",
+    "objectID": "version_info.html",
+    "href": "version_info.html",
+    "title": "7  Version Information",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dashboard Summary and Use</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Version Information</span>"
     ]
   },
   {
-    "objectID": "data_prep.html",
-    "href": "data_prep.html",
-    "title": "3  Preparing Your Data",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "Christensen, Glenn A, Andrew N Gray, Olaf Kuegler, Nadia A Tase, Mark\nRosenberg, and Jeremy Groom. 2021. AB 1504 California Forest\nEcosystem and Harvested Wood Product Carbon Inventory: 2019 Reporting\nPeriod Data Update. Sacramento, CA: California Department of\nForestry; Fire Protection; California Board of Forestry; Fire\nProtection. https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preparing Your Data</span>"
+      "References"
     ]
   },
   {
-    "objectID": "app_upload.html",
-    "href": "app_upload.html",
-    "title": "4  Uploading Your Data",
+    "objectID": "comp_process.html#running-the-standalone-code",
+    "href": "comp_process.html#running-the-standalone-code",
+    "title": "5  Process Your Data Locally",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "5.1.1 Code Outline\n\n\n\n\n\n\nFigure 5.1: Data and code source files associated with Stand_Alone.R\n\n\n\nThe Settings section in the standalone code relies on user input for reading data files correctly and sources the Functions.R script. If the user already has an RDS data file on hand, they can set options to skip the RDS-building step of ‘Create RDS File’.\nWithin the ‘Create RDS File’ step the code runs a QA of the provided data files. The QA_Code.R script reads the Script_Control.xlsx file for setting information to check against the CSV data files. The Excel_to_RDS.R builds the input RDS file from Script_Control.xlsx settings and the CSV data files. If the user provides information about an HWP data set, the Excel_to_RDS.R script will source the HWP_Run.R script to include HWP data in the RDS file. The RDS file is saved locally.\nThe ‘Read RDS file and load conditions’ section loads the RDS file and obtains settings from the RDS file. The standalone code can proceed with producing tables and figures. The ‘Produce figures and tables’ section sources individual figure and table scripts which each draw upon data from the RDS data file.\n\n\n5.1.2 Details for using the Standalone Code by Section\nSettings\nIn the subsection “Enter values”, users must enter the year.use value which is the year of their dataset.\nUsers must also enter the region.use value, their region name. Note that this will produce text that matches the user’s folder/RDS name.\nIf the user is loading existing data, the EXISTING.RDS needs to be set to TRUE. The script will look for the resulting RDS file. If EXISTING.RDS is set to FALSE, the script will attempt to read files and generate the RDS (giving it the name defined by DATA.FOLDER.NAME).\nIf the user is wanting to generate a fresh RDS from their parent data folder, we recommend placing that folder in the repository/project directory folder “Data/”. That will make things operate in a more straightforward manner.\nDoes the user want to have figure scripts save figures to a results folder? If so, SAVE.PNG option should be set to TRUE. This is an option because the Shiny app relies on the same figure code; there is no point for the figure code to internally save the images (users can download the figures from the app).\nThe ‘Other settings’ subsection provides R with information on where folders are located. If the user is relying on the project file structure provided by the GitHub repository (recommended) then the user need not alter anything in this sub section.\nLeave the SHINY.QA setting at FALSE. This allows the Standalone code to save the RDS file. If TRUE, the RDS file will not be saved. The logic is that when the Shiny code compiles the data and performs the QA checks, there is no sense in having the code save the RDS file to the Shinyapps.io instance. The app user can instead click on a button and download the RDS file.\nCreate RDS file\nThis code may be run whether or not a new RDS file is desired. The code will be skipped if a new RDS is not wanted. If used, the code will rely on the information from above (file names) when it sources the QA_Code.R file. This will run the QA routine and write the QA_Report_Table.csv file. This file can be informative for determining process errors.\nThe Excel_to_RDS.R script compiles the RDS file from the Script_Control.xlsx file, the CSV files, and (if selected and available) the output HWP files. The settings in the control file, Script_Controls.xlsx, will determine whether the HWP code is run and provide information for processing the tables and figures. The Excel_to_RDS.R script will save the output RDS file to the local directory.\nRead RDS File and Load Conditions\nThe script reads the RDS file that had been created earlier or was recently created by the code for the previous section. The script also checks to see if the FMRL and LU folders are empty. This information is used to determine which tables and figures to produce below.\nProduce Figures and Tables\nThe object tabfig.run is important. It will list which tables and figures the QA deems available. If a particular table or figure is not being produced (or produced with a ‘no data’ message) type in tabfig.run to see if the QA prevented the figure’s production, then backtrack to the QA_Report_Table.csv to see why this might be the case.\nAlmost every figure and table is sourced from a separate file. The exceptions are tables and figures that rely on the same code or function to generate them. Users will likely select to save figure .png files (see above). The table code saves individual XLSX documents.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Uploading Your Data</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Process Your Data Locally</span>"
     ]
   }
 ]
