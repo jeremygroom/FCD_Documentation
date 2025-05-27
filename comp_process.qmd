@@ -6,7 +6,7 @@ The standalone code is provided so that users may generate their tables and figu
 
 ### *Code Outline*
 
-![Data and code source files associated with Stand_Alone.R](/images/Standalone_dependencies.png){#fig-LABEL fig-alt="ALT"}
+![Data and code source files associated with Stand_Alone.R](images/Standalone_dependencies.png){#fig-LABEL fig-alt="ALT"}
 
 The Settings section in the standalone code relies on user input for reading data files correctly and sources the Functions.R script. If the user already has an RDS data file on hand, they can set options to skip the RDS-building step of ‘Create RDS File’.
 

@@ -4,7 +4,7 @@
 
 Users provide a suite of folders that follow this format:
 
-![Required structure of data input folders and the script control Excel file.](/images/data_folders.png){#fig-LABEL fig-alt="ALT"}
+![Required structure of data input folders and the script control Excel file.](images/data_folders.png){#fig-LABEL fig-alt="ALT"}
 
 Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year, which is the user’s year of interest. This is important! The script will look for these files with these year.
 
