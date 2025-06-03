@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -170,7 +219,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-data-folder" id="toc-your-data-folder" class="nav-link active" data-scroll-target="#your-data-folder"><span class="header-section-number">3.0.1</span> <strong>Your data folder</strong></a></li>
+  <li><a href="#your-data-folder" id="toc-your-data-folder" class="nav-link active" data-scroll-target="#your-data-folder"><span class="header-section-number">3.1</span> <strong>Your data folder</strong></a></li>
+  <li><a href="#features-of-table-and-figure-scripts" id="toc-features-of-table-and-figure-scripts" class="nav-link" data-scroll-target="#features-of-table-and-figure-scripts"><span class="header-section-number">3.2</span> Features of table and figure scripts</a></li>
+  <li><a href="#general-data-set-and-script-control-features" id="toc-general-data-set-and-script-control-features" class="nav-link" data-scroll-target="#general-data-set-and-script-control-features"><span class="header-section-number">3.3</span> <em>General data set and script control features</em></a>
+  <ul class="collapse">
+  <li><a href="#data-set-features" id="toc-data-set-features" class="nav-link" data-scroll-target="#data-set-features"><span class="header-section-number">3.3.1</span> Data set features</a></li>
+  <li><a href="#script-control-features" id="toc-script-control-features" class="nav-link" data-scroll-target="#script-control-features"><span class="header-section-number">3.3.2</span> Script control features</a></li>
+  <li><a href="#the-global-tab" id="toc-the-global-tab" class="nav-link" data-scroll-target="#the-global-tab"><span class="header-section-number">3.3.3</span> The Global Tab</a></li>
+  <li><a href="#general-figure-and-table-tab-settings" id="toc-general-figure-and-table-tab-settings" class="nav-link" data-scroll-target="#general-figure-and-table-tab-settings"><span class="header-section-number">3.3.4</span> General Figure and Table Tab Settings</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -196,25 +253,196 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="your-data-folder" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="your-data-folder"><span class="header-section-number">3.0.1</span> <strong>Your data folder</strong></h3>
+<section id="your-data-folder" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="your-data-folder"><span class="header-section-number">3.1</span> <strong>Your data folder</strong></h2>
 <p>Users provide a suite of folders that follow this format:</p>
-<div id="fig-LABEL" class="quarto-float quarto-figure quarto-figure-center anchored" alt="ALT">
+<div id="fig-files" class="quarto-float quarto-figure quarto-figure-center anchored" alt="ALT">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/data_folders.png" class="img-fluid figure-img" alt="ALT">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.1: Required structure of data input folders and the script control Excel file.
 </figcaption>
 </figure>
 </div>
-<p>Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year, which is the user’s year of interest. This is important! The script will look for these files with these year.</p>
+<p>Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year in their name, which is the user’s year of interest. This is important! The script will look for these files with these year.</p>
 <p>Be sure to include all of these folders! The code may get unhappy if they are missing. Include the folders but leave them empty if you have nothing to put in them (e.g., Annual_FMRL and LU 2020 may be specific to California and a few other states).</p>
-<p>The USDA Forest Service FIA program personnel can provide the CSV files that populate these folders. It should be evident which go where (they will give you CSV Status and GRM CSV folders, for instance).<br>
-We will now spend a great deal of verbiage describing what goes into Script_Controls.xlsx.</p>
+<p>The USDA Forest Service FIA program personnel can provide the CSV files that populate these folders. It should be evident which go where (they will give you CSV Status and GRM CSV folders, for instance).</p>
+<p>We will now spend a great deal of verbiage describing what goes into Script_Controls.xlsx.</p>
+</section>
+<section id="features-of-table-and-figure-scripts" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="features-of-table-and-figure-scripts"><span class="header-section-number">3.2</span> Features of table and figure scripts</h2>
+<p>The table and figure scripts were built with flexibility in mind.<br>
+- CSV files provided by the FIA may change from year to year in column titles. The code finds key words or phrases in each target column and gives those columns specific names, which it then works with to create the figure or table.<br>
+- The Script_Control.xlsx file allows users to control the terms that the table and figure scripts search for, use, and display. The scripts are built to be agnostic towards column values, relying entirely on what the user provides. The user must check columns to verify that the column values being sought exist and have not been altered.</p>
+</section>
+<section id="general-data-set-and-script-control-features" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="general-data-set-and-script-control-features"><span class="header-section-number">3.3</span> <em>General data set and script control features</em></h2>
+<section id="data-set-features" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="data-set-features"><span class="header-section-number">3.3.1</span> Data set features</h3>
+<p>The CSV files provided by FIA staff may have extremely long file names. The names are so long that we recommend that users save the files close to their root directory. This hopefully allows users the ability of opening the CSV files. It is necessary for users to open these files so that they can verify that the items listed in Script_Control.xlsx tabs are accurate or need updated. The code in the app is constructed to search for files using a unique string that is shorter than the actual file name.</p>
+</section>
+<section id="script-control-features" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="script-control-features"><span class="header-section-number">3.3.2</span> Script control features</h3>
+<p>The file Script_Control.xlsx (Script Control) provides specific information to the app on how to label files, where to find files, how to cope with specific features of CSV data files, and what processes to run. There are three distinct parts to Script Control: the Global tab, Fig tabs, and Tab tabs.</p>
+<p>The Global tab contains general information on the region and years to be examined, ecoregions and ownerships specific to users’ data, color palates to be used for ownerships, forest types, carbon stocks, Growth removal and mortality (GRM) fates, etc. There are also columns specific to running the Harvested Wood Products (HWP) model. These features help define aspects for all figures and tables, from caption text to figure colors and table categories.</p>
+<p>The Fig tabs control all figures generated. Each Fig tab controls the creation of one or a few similar figures. The tabs provide information on what file names the code should search for, which folder to search in, specific figure text to provide, and figure control information.</p>
+<p>The Tab tabs control all tables generated. Like the Fig tabs, the Tab tabs control the creation of one or a few tables. Many of the columns are the same and serve the same function as the Fig tabs. Some columns can offer specific information that is needed to generate a table. Some Tab tabs are used repeatedly on different data set or require the combination of separate data sets to produce a single table.</p>
+<p>Table and figure tabs were created around the tables and figures listed in <span class="citation" data-cites="christensen2019ab">Christensen et al. (<a href="references.html#ref-christensen2019ab" role="doc-biblioref">2021</a>)</span>. We recommend that users review that source (or the app output) to orient themselves regarding which data sets are relevant to which tables and figures.</p>
+</section>
+<section id="the-global-tab" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="the-global-tab"><span class="header-section-number">3.3.3</span> The Global Tab</h3>
+<p>This section describes important aspects of the Script Control’s Global Tab. The user should review and alter all of these settings to align with their data and needs.</p>
+<ul>
+<li><p>REGION: This is the name of the region in question. Specifically, as can be seen in <a href="#fig-files" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, the parent folder is named “California 2020”. The REGION for this fold is ‘California’. The user should set their REGION similarly.</p></li>
+<li><p>YEAR: Like REGION, this should be set to the appropriate year for the data and it will/is be part of the parent folder’s title.</p></li>
+<li><p>EARLY.YRS and CURRENT.YRS: Years are broken into two sets. CURRENT.YRS are the most recent ten years ending in YEAR. EARLY.YRS are the ten years prior to CURRENT.YRS.</p></li>
+<li><p>ECOREGIONS: A list of ecoregions used within data sets and potentially in data CSV file names.</p></li>
+<li><p>OWNERSHIPS: This is a list of ownership names that show up repeatedly within CSV data files. Ensure that the spelling is consistent with data file values.</p></li>
+<li><p>OWNERSHIP.COLORS: The hexadecimal codes used for ownerships. Be sure the number of OWNERSHIP.COLORS matches OWNERSHIPS.</p></li>
+<li><p>RESERVED.TYPES, RESERVED.COLORS: Like OWNERSHIPS, these columns include forest type names by reserve status and the associated hexidecimal colors, respectively. Be sure the two columns are of equal length.</p></li>
+<li><p>STOCKS, STOCK.COLORS: Like OWNERSHIPS, these columns include carbon stock types by physical location on the landscape (e.g., roots, standing dead) and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.</p></li>
+<li><p>GRM.TYPES, GRM.COLORS: Like OWNERSHIPS, these columns include carbon associated with stand growth/removal/mortality categories (e.g., Fire, Gross Tree Growth) and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.</p></li>
+<li><p>OWNERSHIP.RESERVED.TYPES, OWNERSHIP.RESERVED.COLORS: These columns list general ownership types that include public reserved and unreserved lands and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.</p></li>
+<li><p>RUN.HWP: This column indicates whether the app upload (<a href="app_upload.html" class="quarto-xref"><span>Chapter 4</span></a>) or stand-alone (<a href="comp_process.html" class="quarto-xref"><span>Chapter 5</span></a>) code should attempt to run the <a href="https://groomanalyticsllc.shinyapps.io/HWP-C-vR/">HWP model</a> (TRUE) or forego running the model (FALSE). It is primarily useful for the stand-alone script run on one’s own computer. The app relies on users to select whether or not they want HWP data to be run, bypassing the importance of this setting.</p></li>
+<li><p>SOURCE.GIT: This setting is also only used in the stand-alone setting. Users may enter four options here: “OWN.DIR”, “CA”, “WA”, and “OR”. One of the three state abbreviations will cause the code to obtain the state’s HWP data from the <a href="https://github.com/jeremygroom/HWP-C-vR">HWP GitHub repository</a>. “OWN.DIR” indicates that the user has their own HWP data they would like incorporated in the tables. The app by default selects “OWN.DIR”.</p></li>
+<li><p>OWN.HWP.DIR: This option also is only relevant for users running the stand-alone script. Under this column heading the user lists is the folder location and file name for the user’s HWP data when they entered “OWN.DIR” for the column “SOURCE.GIT”. We recommend placing the Excel file in the repository’s base file (wherever <code>getwd()</code> is for the project) and just listing the file’s Excel name; e.g., ‘Some_Data.xlsx’. This simplifies what is entered. For instance, entering ‘/MyData/Home/Some_Data.xlsx’ opens oneself up to problems (was that initial backslash needed? Is the file path full and correct? Is the file path in relation to the working directory or the main directory?).</p></li>
+</ul>
+</section>
+<section id="general-figure-and-table-tab-settings" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="general-figure-and-table-tab-settings"><span class="header-section-number">3.3.4</span> General Figure and Table Tab Settings</h3>
+<p>With the exceptions of Tab 6 and Tab 7, all table and figure tabs share certain columns.</p>
+<ul>
+<li><p>DAT.FILE: This is the unique string used to identify a data table used in a figure or table. For instance, Fig2.4 has a DAT.FILE listed as ‘Figure_2.4_Percent’. The data file names are usually much longer than the DAT.FILE entry.</p></li>
+<li><p>DAT.TABLE.LOC: The location of the data table is stated here. It is used to identify the folder listed in <a href="#fig-files" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> generically. Users can enter ‘CSV.STATUS’, ‘GRM.CSV’, ‘LU.CSV’, or ‘FMRL.CSV’. These generic versions of the folder names are used to facilitate code execution.</p></li>
+</ul>
+<p>DAT.FILE and DAT.TABLE.LOC are used together for opening CSV files. The DAT.FILE string is searched for in file names found in the DAT.TABLE.LOC folders. There can be multiple DAT.FILE files listed for certain tables and figures with a single DAT.TABLE.LOC (see Tab4.12 and Figure 4.12). Two data tables may be needed from different folders, in which case the DAT.FILE and DAT.TABLE.LOC can have entries that correspond by row. For Tab4.2a, DAT.FILE = ‘Table 4.2a_’ and ‘_LuseC’ while DAT.TABLE.LOC = ‘GRM.CSV’ and ‘LU.CSV’.</p>
+<ul>
+<li><p>FIG.NAME: This applies to figure tabs only. This value is the name of the figure that is to be produced and saved by the code. This value affects users running the stand-alone code, not the app.</p></li>
+<li><p>INCREMENT: Some figure tabs have this column. It represents the plotting increment to use on the y axis.</p></li>
+<li><p>IS_CO2e: Yes/No.&nbsp;This applies to some figure tabs. The associated figure code has option for providing results in <span class="math inline">\(CO_2e\)</span> or <span class="math inline">\(CO_2\)</span>. The default setting is “Yes”, <span class="math inline">\(CO_2e\)</span>. This option was developed because previous versions of the figure were produced in <span class="math inline">\(CO_2\)</span> but current reporting metrics rely on <span class="math inline">\(CO_2e\)</span>.</p></li>
+<li><p>TAB.CAP: This applies to some tables. There may be a reference to repeated tables in the appendix in which case this option controls the appendix reference.</p></li>
+</ul>
+<p>Frequently for a table or figure tab there will be groups of three columns with a heading of _.LISTED, _.USE, _.ORDER (e.g., OWNER.LISTED, OWNER.USE, OWNER.ORDER) that are specific to the table or figure’s parent data set. One table or figure can have more than one of these sets of columns. The _.LISTED column indicates the values listed in a column that are of interest. The _.USE column allows the user to specify how the _.LISTED items are displayed (e.g., “Private Corporate” instead of “Corporate”). The ._ORDER column allows the user to specify the display order of the items in a figure; this column is not always present. Note that the _.USE and _.ORDER columns may repeat values for different _.LISTED values, as the table or figure script is combining these values.</p>
+<section id="specific-figure-information" class="level4" data-number="3.3.4.1">
+<h4 data-number="3.3.4.1" class="anchored" data-anchor-id="specific-figure-information"><span class="header-section-number">3.3.4.1</span> Specific Figure Information</h4>
+<p>Below are descriptions of each figure and figure-specific settings.</p>
+<p><em>Fig2.4</em><br>
+Percent of forest land base by landowner and reserve status.<br>
+- The columns ‘combine’ and ‘combine_order’ are used to lump certain combinations of ‘Ownership’, ‘ReservedStatus’, and ‘Forest Type’ with the category ‘Other Forest Land’. Some ownerships/reserved status combinations combine ‘Productive’ and ‘Timberland’ with ‘Other Forest Land’ and other combinations do not. These may be adjusted to suit user needs.<br>
+- FOR.TYPE.LISTED: Note that there may be formatting issues with the provided CSV listed forest types. The code attempts to sidestep these peculiarities. The figure-producing script (Fig2.4.R) and associated functions (Functions.R) should be able to produce a working version of this figure without the <code>\xb9</code> text in this column.</p>
+<p><em>Fig4.1</em> Region’s average annual net forestland <span class="math inline">\(CO_2e\)</span> flux by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.2</em><br>
+Region’s average annual net forestland <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+- POOL.LISTED: For California 2020 and 2021 data, the listed category ‘Foliage’ is not found by the QA, nor is it in the data set. It was present in earlier versions of the figure for California. The SC will still work and the figure will be plotted.</p>
+<p><em>Fig4.3</em><br>
+Region’s average annual net timberland <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.4a</em><br>
+Region’s forestland average annual net <span class="math inline">\(CO_2e\)</span> flux in above-ground live carbon by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.4b</em><br>
+Region’s timberland/reserved productive forestland average annual net <span class="math inline">\(CO_2e\)</span> flux in above-ground live carbon by ownership, comparing findings from the initial 10 years with most recent 10 years.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.6a</em><br>
+Ecoregions’ average annual net <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+- This figure relies on several different CSV files, one per ecoregion.<br>
+- Like Fig4.2, ‘Foliage’ does not appear in the data set but did appear in earlier versions of this figure for California.</p>
+<p><em>Fig4.6b</em><br>
+Region forestland avera annual net <span class="math inline">\(CO_2e\)</span> flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.<br>
+- POOL.COLOR: This column provides hexcode color values for carbon pools.</p>
+<p><em>Fig4.8</em><br>
+Region average forest carbon stock by owner, <span class="math inline">\(CO_2e\)</span>.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.9_4.10</em> This tab provides information for the region’s average carbon stock by poo and owner (Figure 4.9) and land status and owner (Figure 4.10).<br>
+- Both figures rely on the same CSV data set.<br>
+- The columns POOL.LISTED1, POOL.LISTED2, POOL.USE, and POOL.ORD are used together but are not processed in the same fashion as other column sets (e.g., the OWNERS columns in this tab). POOL.LISTED1 and POOL.LISTED2 are used together to match with two columns in the CSV data in a <code>left_join()</code> function by the Fig4.9_4.10.R code.</p>
+<p><em>Fig4.11</em><br>
+Region average forest carbon stock by land status and ecoregion.<br>
+- No other figure-specific columns.</p>
+<p><em>Fig4.12</em><br>
+Region average carbon stock by pool and forest type.<br>
+- This tab is used to inform/produce Figure 4.12 as well as the ecoregion figures for A1.x.1 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.1 in <span class="citation" data-cites="christensen2019ab">Christensen et al. (<a href="references.html#ref-christensen2019ab" role="doc-biblioref">2021</a>)</span>). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.<br>
+- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
+<p><em>Fig4.13</em><br>
+Region average carbon stock by land status and forest type, metric tons <span class="math inline">\(CO_2\)</span> and <span class="math inline">\(CO_2e\)</span> per acre.<br>
+- This tab is used to inform/produce Figure 4.13 as well as the ecoregion figures for A1.x.2 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.2 in <span class="citation" data-cites="christensen2019ab">Christensen et al. (<a href="references.html#ref-christensen2019ab" role="doc-biblioref">2021</a>)</span>). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.<br>
+- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
+<p><em>Fig4.14</em> Region carbon density by pool and forest type, metric tons <span class="math inline">\(CO_2\)</span> and <span class="math inline">\(CO_2e\)</span> per acre.<br>
+- DAT.FILE: A carbon accounting CSV file and acreage data file are used to calculate metric tons per acre.<br>
+- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
+</section>
+<section id="specific-table-information" class="level4" data-number="3.3.4.2">
+<h4 data-number="3.3.4.2" class="anchored" data-anchor-id="specific-table-information"><span class="header-section-number">3.3.4.2</span> Specific Table Information</h4>
+<p>Below are descriptions of each table and table-specific settings.</p>
+<p><em>Tab4.1</em><br>
+Region average annual net <span class="math inline">\(CO_2e\)</span> flux from forest pools in forest land remaining forest land, comparing findings from the initial 10 years with most recent 10 years.<br>
+- NET.REMOVE: This value can be blank. In 2020 the California data set included a carbon pool value labeled ‘NET FLUX’. That row was not needed and was removed. Therefore, this entry serves to remove up to one carbon pool.</p>
+<p><em>Tab4.2a</em><br>
+Region average annual net <span class="math inline">\(CO_2e\)</span> flux from forest pools, non-<span class="math inline">\(CO_2\)</span> emissions from forest fires in forest remaining forest land, and changes due to forest land conversion. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- DAT.FILE, DAT.TABLE.LOC: Two separate tables are required, one from the LU folder.</p>
+<p><em>Tab4.2b</em><br>
+Average annual net <span class="math inline">\(CO_2e\)</span> flux from forest ecosystem pools and non-CO2 emissions from forest fires in Forest land remaining forest land.<br>
+- POOL4.2b.FPD.LEVELS: Note that the first entry here is “Forest Practice District”. See the associated table; this row will be blank. This column is not associated with the other POOL columns directly which is why it is OK that its length is or can be different.</p>
+<p><em>Tab4.3</em><br>
+Region-wide estimate of average annual net carbon flux in <span class="math inline">\(CO_2e\)</span> by pools and owner. Changes in <span class="math inline">\(CO_2e\)</span> due to land-use and non-<span class="math inline">\(CO_2\)</span> greenhouse gas emissions are not included. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- No other table-specific columns.</p>
+<p><em>Tab4.6</em><br>
+This tab controls the creation of 4+ tables: Average Annual Net Change in Carbon Stocks for Aboveground Pools on Forest Land by Disturbance, Forest Land Status and Owner Group by:<br>
+* The entire region<br>
+* All counties<br>
+* All national forests<br>
+* All forest practice districts or the equivalent (e.g., Oregon has Forest Practice Areas). The number of these is flexible but must correspond to avaliable CSV data.<br>
+- DAT.FILE: The order of data files is Region (State), County, National Forests, and then one per Forest Practice District or equivalent. - REG.COUNTIES.APP.TABLE.4.6 is a reference list that should probably have been listed as TAB.CAP. See TAB.CAP, above.<br>
+- _.LEVELS columns are the ordered values from different columns. Users should be sure that their respective data column levels are captured here. There was not an effort to clean up displayed level names; names from the CSV file are used.</p>
+<p><em>Tab4.7</em><br>
+Annual Net Emissions of Non-<span class="math inline">\(CO_2\)</span> Greenhouse Gases from Fire; actually includes <span class="math inline">\(CO_2\)</span>.<br>
+- The script sources Tab4.6.R because it combines information from that table with the CSV file listed for this table.<br>
+- GENOWNER._, OWNER._, TYPE_ columns: These four columns are used together. The table has two ‘Total’ columns, one for private forest and one for everything (in the script this is referred to as the ‘Gen.Total’). The blank cells are filled in by the script as ‘Gen.Total’. This could be confusing, but the user should examine Table 4.7, this tab, and their CSV table and ensure that everything lines up. If not, the user should make adjustments to the values in this tab accordingly.</p>
+<p><em>Tab4.8</em><br>
+Annual change in forest land area to/from other IPCC land-use classes in the region. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- The pairs of columns for LAND._, TYPE._, and CHNG/FLC are not manipulated by a function but are used as-is. Ensure that both sets of columns for each pair, the _.USE and -.LISTED, columns, properly capture the data set’s listed labels and the desired labels.</p>
+<p><em>Tab4.9</em><br>
+Annual change in carbon pools due to change in land use between forest and nonforest in the region. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- The columns FTC.LISTED and CHNG.4.9.USE are used as a pair; see notes for Tab4.8. Otherwise, there are no other table-specific comments for this table.</p>
+<p><em>Tab4.10</em><br>
+Area of forest land remaining forest land by ownership group and region.<br>
+- No other table-specific columns.</p>
+<p><em>Tab4.11</em><br>
+Area of Forest Land by Forest Type, Owner Group and Forest Land Status for the entire region.<br>
+- No other table-specific columns.</p>
+<p><em>Tab4.12</em><br>
+This tab controls the creation of 4+ tables: Forest land carbon stock by ownership and land status, where results in MMT <span class="math inline">\(CO_2e\)</span> and thousand acres by:<br>
+* The entire region<br>
+* All counties<br>
+* All national forests<br>
+* All forest practice districts or the equivalent (e.g., Oregon has Forest Practice Areas). The number of these is flexible but must correspond to avaliable CSV data.<br>
+- DAT.FILE: The order of data files is Region (State), County, National Forests, and then one per Forest Practice District or equivalent.<br>
+- The current script Tab4.12.R relies on the values within the CSV file column for carbon stock values (e.g., values include Live trees, Down wood, etc.). Hopefully the provided carbon stock value text in that column is similarly usable in future data sets provided by FIA.</p>
+<p><em>Tab4.31</em><br>
+Forest carbon pools by 10-year inventory period. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- No other table-specific columns.</p>
+<p><em>Tab4.32</em><br>
+Live tree carbon stocks by ownership and land status. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- No other table-specific columns.</p>
+<p><em>Tab4.33</em><br>
+Forest carbon stocks by ownership and land status. The table compares findings from the initial 10 years with most recent 10 years.<br>
+- No other table-specific columns.</p>
+<p><em>Tab6</em><br>
+This tab controls the creation of tables 6.5, 6.6, and 6.9. These three tables only summarize HWP values. Specifically, this tab is used to renames the HWP owner groups. The owner groups are column labels (not including the first column, “Year”) listed at the top of the ‘Harvest’ Excel tab for the HWP data input file. This table is described in the <a href="https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-prov-input-harvest">HWP documentation</a>. For example, if there is an owner column for ‘Private and Tribal’, the table will be processed by the HWP code that the Forest Carbon Dashboard sources and the ownership name is transformed to “Private.and.Tribal”. Tab6 offers a remedy for strange HWP output names.</p>
+<p><em>Tab7</em><br>
+This tab controls some caption content for tables 7.1, 7.2, and 7.3. All three of these table combine and summarize ecosystem carbon estimates with HWP estimates. The caption text is relevant to the reporting period of interest.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-christensen2019ab" class="csl-entry" role="listitem">
+Christensen, Glenn A, Andrew N Gray, Olaf Kuegler, Nadia A Tase, Mark Rosenberg, and Jeremy Groom. 2021. <em>AB 1504 California Forest Ecosystem and Harvested Wood Product Carbon Inventory: 2019 Reporting Period Data Update</em>. Sacramento, CA: California Department of Forestry; Fire Protection; California Board of Forestry; Fire Protection. <a href="https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf">https://bof.fire.ca.gov/media/beddx5bp/6-final_forest_ecosys_hwp_c_2019_feb2021_all_ada.pdf</a>.
+</div>
+</div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

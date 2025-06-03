@@ -1,7 +1,4 @@
 # Frequently Asked Questions and Troubleshooting
 
-In summary, this book has no content whatsoever.
-
-```{r}
-1 + 1
-```
+## Things to be Fixed   
+- For tables, allow for null values for TAB.CAP to trigger code that removes reference to the repeated Appendix table (i.e., remove "See also" from the caption text).   

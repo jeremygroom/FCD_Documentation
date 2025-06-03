@@ -1,14 +1,229 @@
 # Preparing Your Data
 
-### **Your data folder**
+## **Your data folder**
 
 Users provide a suite of folders that follow this format:
 
-![Required structure of data input folders and the script control Excel file.](images/data_folders.png){#fig-LABEL fig-alt="ALT"}
+![Required structure of data input folders and the script control Excel file.](images/data_folders.png){#fig-files fig-alt="ALT"}
 
-Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year, which is the user’s year of interest. This is important! The script will look for these files with these year.
+Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year in their name, which is the user’s year of interest. This is important! The script will look for these files with these year.
 
 Be sure to include all of these folders! The code may get unhappy if they are missing. Include the folders but leave them empty if you have nothing to put in them (e.g., Annual_FMRL and LU 2020 may be specific to California and a few other states).
 
-The USDA Forest Service FIA program personnel can provide the CSV files that populate these folders. It should be evident which go where (they will give you CSV Status and GRM CSV folders, for instance).\
+The USDA Forest Service FIA program personnel can provide the CSV files that populate these folders. It should be evident which go where (they will give you CSV Status and GRM CSV folders, for instance).
+
 We will now spend a great deal of verbiage describing what goes into Script_Controls.xlsx.
+
+## Features of table and figure scripts
+
+The table and figure scripts were built with flexibility in mind.\
+- CSV files provided by the FIA may change from year to year in column titles. The code finds key words or phrases in each target column and gives those columns specific names, which it then works with to create the figure or table.\
+- The Script_Control.xlsx file allows users to control the terms that the table and figure scripts search for, use, and display. The scripts are built to be agnostic towards column values, relying entirely on what the user provides. The user must check columns to verify that the column values being sought exist and have not been altered.
+
+## *General data set and script control features*
+
+### Data set features
+
+The CSV files provided by FIA staff may have extremely long file names. The names are so long that we recommend that users save the files close to their root directory. This hopefully allows users the ability of opening the CSV files. It is necessary for users to open these files so that they can verify that the items listed in Script_Control.xlsx tabs are accurate or need updated. The code in the app is constructed to search for files using a unique string that is shorter than the actual file name.
+
+### Script control features
+
+The file Script_Control.xlsx (Script Control) provides specific information to the app on how to label files, where to find files, how to cope with specific features of CSV data files, and what processes to run. There are three distinct parts to Script Control: the Global tab, Fig tabs, and Tab tabs.
+
+The Global tab contains general information on the region and years to be examined, ecoregions and ownerships specific to users' data, color palates to be used for ownerships, forest types, carbon stocks, Growth removal and mortality (GRM) fates, etc. There are also columns specific to running the Harvested Wood Products (HWP) model. These features help define aspects for all figures and tables, from caption text to figure colors and table categories.
+
+The Fig tabs control all figures generated. Each Fig tab controls the creation of one or a few similar figures. The tabs provide information on what file names the code should search for, which folder to search in, specific figure text to provide, and figure control information.
+
+The Tab tabs control all tables generated. Like the Fig tabs, the Tab tabs control the creation of one or a few tables. Many of the columns are the same and serve the same function as the Fig tabs. Some columns can offer specific information that is needed to generate a table. Some Tab tabs are used repeatedly on different data set or require the combination of separate data sets to produce a single table.
+
+Table and figure tabs were created around the tables and figures listed in @christensen2019ab. We recommend that users review that source (or the app output) to orient themselves regarding which data sets are relevant to which tables and figures.
+
+### The Global Tab
+
+This section describes important aspects of the Script Control's Global Tab. The user should review and alter all of these settings to align with their data and needs.
+
+-   REGION: This is the name of the region in question. Specifically, as can be seen in @fig-files, the parent folder is named "California 2020". The REGION for this fold is 'California'. The user should set their REGION similarly.
+
+-   YEAR: Like REGION, this should be set to the appropriate year for the data and it will/is be part of the parent folder's title.
+
+-   EARLY.YRS and CURRENT.YRS: Years are broken into two sets. CURRENT.YRS are the most recent ten years ending in YEAR. EARLY.YRS are the ten years prior to CURRENT.YRS.
+
+-   ECOREGIONS: A list of ecoregions used within data sets and potentially in data CSV file names.
+
+-   OWNERSHIPS: This is a list of ownership names that show up repeatedly within CSV data files. Ensure that the spelling is consistent with data file values.
+
+-   OWNERSHIP.COLORS: The hexadecimal codes used for ownerships. Be sure the number of OWNERSHIP.COLORS matches OWNERSHIPS.
+
+-   RESERVED.TYPES, RESERVED.COLORS: Like OWNERSHIPS, these columns include forest type names by reserve status and the associated hexidecimal colors, respectively. Be sure the two columns are of equal length.
+
+-   STOCKS, STOCK.COLORS: Like OWNERSHIPS, these columns include carbon stock types by physical location on the landscape (e.g., roots, standing dead) and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.
+
+-   GRM.TYPES, GRM.COLORS: Like OWNERSHIPS, these columns include carbon associated with stand growth/removal/mortality categories (e.g., Fire, Gross Tree Growth) and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.
+
+-   OWNERSHIP.RESERVED.TYPES, OWNERSHIP.RESERVED.COLORS: These columns list general ownership types that include public reserved and unreserved lands and their associated hexidecimal colors, respectively. Be sure the two columns are of equal length.
+
+-   RUN.HWP: This column indicates whether the app upload (@sec-upld) or stand-alone (@sec-stndalone) code should attempt to run the [HWP model](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/) (TRUE) or forego running the model (FALSE). It is primarily useful for the stand-alone script run on one's own computer. The app relies on users to select whether or not they want HWP data to be run, bypassing the importance of this setting.
+
+-   SOURCE.GIT: This setting is also only used in the stand-alone setting. Users may enter four options here: "OWN.DIR", "CA", "WA", and "OR". One of the three state abbreviations will cause the code to obtain the state's HWP data from the [HWP GitHub repository](https://github.com/jeremygroom/HWP-C-vR). "OWN.DIR" indicates that the user has their own HWP data they would like incorporated in the tables. The app by default selects "OWN.DIR".
+
+-   OWN.HWP.DIR: This option also is only relevant for users running the stand-alone script. Under this column heading the user lists is the folder location and file name for the user's HWP data when they entered "OWN.DIR" for the column "SOURCE.GIT". We recommend placing the Excel file in the repository's base file (wherever `getwd()` is for the project) and just listing the file's Excel name; e.g., 'Some_Data.xlsx'. This simplifies what is entered. For instance, entering '/MyData/Home/Some_Data.xlsx' opens oneself up to problems (was that initial backslash needed? Is the file path full and correct? Is the file path in relation to the working directory or the main directory?).
+
+### General Figure and Table Tab Settings
+
+With the exceptions of Tab 6 and Tab 7, all table and figure tabs share certain columns.
+
+-   DAT.FILE: This is the unique string used to identify a data table used in a figure or table. For instance, Fig2.4 has a DAT.FILE listed as 'Figure_2.4_Percent'. The data file names are usually much longer than the DAT.FILE entry.
+
+-   DAT.TABLE.LOC: The location of the data table is stated here. It is used to identify the folder listed in @fig-files generically. Users can enter 'CSV.STATUS', 'GRM.CSV', 'LU.CSV', or 'FMRL.CSV'. These generic versions of the folder names are used to facilitate code execution.
+
+DAT.FILE and DAT.TABLE.LOC are used together for opening CSV files. The DAT.FILE string is searched for in file names found in the DAT.TABLE.LOC folders. There can be multiple DAT.FILE files listed for certain tables and figures with a single DAT.TABLE.LOC (see Tab4.12 and Figure 4.12). Two data tables may be needed from different folders, in which case the DAT.FILE and DAT.TABLE.LOC can have entries that correspond by row. For Tab4.2a, DAT.FILE = 'Table 4.2a\_' and '\_LuseC' while DAT.TABLE.LOC = 'GRM.CSV' and 'LU.CSV'.
+
+-   FIG.NAME: This applies to figure tabs only. This value is the name of the figure that is to be produced and saved by the code. This value affects users running the stand-alone code, not the app.
+
+-   INCREMENT: Some figure tabs have this column. It represents the plotting increment to use on the y axis.
+
+-   IS_CO2e: Yes/No. This applies to some figure tabs. The associated figure code has option for providing results in $CO_2e$ or $CO_2$. The default setting is "Yes", $CO_2e$. This option was developed because previous versions of the figure were produced in $CO_2$ but current reporting metrics rely on $CO_2e$.
+
+-   TAB.CAP: This applies to some tables. There may be a reference to repeated tables in the appendix in which case this option controls the appendix reference.
+
+Frequently for a table or figure tab there will be groups of three columns with a heading of \_.LISTED, \_.USE, \_.ORDER (e.g., OWNER.LISTED, OWNER.USE, OWNER.ORDER) that are specific to the table or figure's parent data set. One table or figure can have more than one of these sets of columns. The \_.LISTED column indicates the values listed in a column that are of interest. The \_.USE column allows the user to specify how the \_.LISTED items are displayed (e.g., "Private Corporate" instead of "Corporate"). The .\_ORDER column allows the user to specify the display order of the items in a figure; this column is not always present. Note that the \_.USE and \_.ORDER columns may repeat values for different \_.LISTED values, as the table or figure script is combining these values.
+
+#### Specific Figure Information
+
+Below are descriptions of each figure and figure-specific settings.
+
+*Fig2.4*\
+Percent of forest land base by landowner and reserve status.\
+- The columns 'combine' and 'combine_order' are used to lump certain combinations of 'Ownership', 'ReservedStatus', and 'Forest Type' with the category 'Other Forest Land'. Some ownerships/reserved status combinations combine 'Productive' and 'Timberland' with 'Other Forest Land' and other combinations do not. These may be adjusted to suit user needs.\
+- FOR.TYPE.LISTED: Note that there may be formatting issues with the provided CSV listed forest types. The code attempts to sidestep these peculiarities. The figure-producing script (Fig2.4.R) and associated functions (Functions.R) should be able to produce a working version of this figure without the `\xb9` text in this column.
+
+*Fig4.1* Region's average annual net forestland $CO_2e$ flux by owner, comparing findings from the initial 10 years with most recent 10 years.\
+- No other figure-specific columns.
+
+*Fig4.2*\
+Region's average annual net forestland $CO_2e$ flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.\
+- POOL.LISTED: For California 2020 and 2021 data, the listed category 'Foliage' is not found by the QA, nor is it in the data set. It was present in earlier versions of the figure for California. The SC will still work and the figure will be plotted.
+
+*Fig4.3*\
+Region's average annual net timberland $CO_2e$ flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.\
+- No other figure-specific columns.
+
+*Fig4.4a*\
+Region's forestland average annual net $CO_2e$ flux in above-ground live carbon by owner, comparing findings from the initial 10 years with most recent 10 years.\
+- No other figure-specific columns.
+
+*Fig4.4b*\
+Region's timberland/reserved productive forestland average annual net $CO_2e$ flux in above-ground live carbon by ownership, comparing findings from the initial 10 years with most recent 10 years.\
+- No other figure-specific columns.
+
+*Fig4.6a*\
+Ecoregions' average annual net $CO_2e$ flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.\
+- This figure relies on several different CSV files, one per ecoregion.\
+- Like Fig4.2, 'Foliage' does not appear in the data set but did appear in earlier versions of this figure for California.
+
+*Fig4.6b*\
+Region forestland avera annual net $CO_2e$ flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.\
+- POOL.COLOR: This column provides hexcode color values for carbon pools.
+
+*Fig4.8*\
+Region average forest carbon stock by owner, $CO_2e$.\
+- No other figure-specific columns.
+
+*Fig4.9_4.10* This tab provides information for the region's average carbon stock by poo and owner (Figure 4.9) and land status and owner (Figure 4.10).\
+- Both figures rely on the same CSV data set.\
+- The columns POOL.LISTED1, POOL.LISTED2, POOL.USE, and POOL.ORD are used together but are not processed in the same fashion as other column sets (e.g., the OWNERS columns in this tab). POOL.LISTED1 and POOL.LISTED2 are used together to match with two columns in the CSV data in a `left_join()` function by the Fig4.9_4.10.R code.
+
+*Fig4.11*\
+Region average forest carbon stock by land status and ecoregion.\
+- No other figure-specific columns.
+
+*Fig4.12*\
+Region average carbon stock by pool and forest type.\
+- This tab is used to inform/produce Figure 4.12 as well as the ecoregion figures for A1.x.1 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.1 in @christensen2019ab). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.\
+- The script produces two figures, one for $CO_2e$ and the other for $CO_2$.
+
+*Fig4.13*\
+Region average carbon stock by land status and forest type, metric tons $CO_2$ and $CO_2e$ per acre.\
+- This tab is used to inform/produce Figure 4.13 as well as the ecoregion figures for A1.x.2 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.2 in @christensen2019ab). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.\
+- The script produces two figures, one for $CO_2e$ and the other for $CO_2$.
+
+*Fig4.14* Region carbon density by pool and forest type, metric tons $CO_2$ and $CO_2e$ per acre.\
+- DAT.FILE: A carbon accounting CSV file and acreage data file are used to calculate metric tons per acre.\
+- The script produces two figures, one for $CO_2e$ and the other for $CO_2$.
+
+#### Specific Table Information
+
+Below are descriptions of each table and table-specific settings.
+
+*Tab4.1*\
+Region average annual net $CO_2e$ flux from forest pools in forest land remaining forest land, comparing findings from the initial 10 years with most recent 10 years.\
+- NET.REMOVE: This value can be blank. In 2020 the California data set included a carbon pool value labeled 'NET FLUX'. That row was not needed and was removed. Therefore, this entry serves to remove up to one carbon pool.
+
+*Tab4.2a*\
+Region average annual net $CO_2e$ flux from forest pools, non-$CO_2$ emissions from forest fires in forest remaining forest land, and changes due to forest land conversion. The table compares findings from the initial 10 years with most recent 10 years.\
+- DAT.FILE, DAT.TABLE.LOC: Two separate tables are required, one from the LU folder.
+
+*Tab4.2b*\
+Average annual net $CO_2e$ flux from forest ecosystem pools and non-CO2 emissions from forest fires in Forest land remaining forest land.\
+- POOL4.2b.FPD.LEVELS: Note that the first entry here is "Forest Practice District". See the associated table; this row will be blank. This column is not associated with the other POOL columns directly which is why it is OK that its length is or can be different.
+
+*Tab4.3*\
+Region-wide estimate of average annual net carbon flux in $CO_2e$ by pools and owner. Changes in $CO_2e$ due to land-use and non-$CO_2$ greenhouse gas emissions are not included. The table compares findings from the initial 10 years with most recent 10 years.\
+- No other table-specific columns.
+
+*Tab4.6*\
+This tab controls the creation of 4+ tables: Average Annual Net Change in Carbon Stocks for Aboveground Pools on Forest Land by Disturbance, Forest Land Status and Owner Group by:\
+\* The entire region\
+\* All counties\
+\* All national forests\
+\* All forest practice districts or the equivalent (e.g., Oregon has Forest Practice Areas). The number of these is flexible but must correspond to avaliable CSV data.\
+- DAT.FILE: The order of data files is Region (State), County, National Forests, and then one per Forest Practice District or equivalent. - REG.COUNTIES.APP.TABLE.4.6 is a reference list that should probably have been listed as TAB.CAP. See TAB.CAP, above.\
+- \_.LEVELS columns are the ordered values from different columns. Users should be sure that their respective data column levels are captured here. There was not an effort to clean up displayed level names; names from the CSV file are used.
+
+*Tab4.7*\
+Annual Net Emissions of Non-$CO_2$ Greenhouse Gases from Fire; actually includes $CO_2$.\
+- The script sources Tab4.6.R because it combines information from that table with the CSV file listed for this table.\
+- GENOWNER.\_, OWNER.\_, TYPE\_ columns: These four columns are used together. The table has two 'Total' columns, one for private forest and one for everything (in the script this is referred to as the 'Gen.Total'). The blank cells are filled in by the script as 'Gen.Total'. This could be confusing, but the user should examine Table 4.7, this tab, and their CSV table and ensure that everything lines up. If not, the user should make adjustments to the values in this tab accordingly.
+
+*Tab4.8*\
+Annual change in forest land area to/from other IPCC land-use classes in the region. The table compares findings from the initial 10 years with most recent 10 years.\
+- The pairs of columns for LAND.\_, TYPE.\_, and CHNG/FLC are not manipulated by a function but are used as-is. Ensure that both sets of columns for each pair, the \_.USE and -.LISTED, columns, properly capture the data set's listed labels and the desired labels.
+
+*Tab4.9*\
+Annual change in carbon pools due to change in land use between forest and nonforest in the region. The table compares findings from the initial 10 years with most recent 10 years.\
+- The columns FTC.LISTED and CHNG.4.9.USE are used as a pair; see notes for Tab4.8. Otherwise, there are no other table-specific comments for this table.
+
+*Tab4.10*\
+Area of forest land remaining forest land by ownership group and region.\
+- No other table-specific columns.
+
+*Tab4.11*\
+Area of Forest Land by Forest Type, Owner Group and Forest Land Status for the entire region.\
+- No other table-specific columns.
+
+*Tab4.12*\
+This tab controls the creation of 4+ tables: Forest land carbon stock by ownership and land status, where results in MMT $CO_2e$ and thousand acres by:\
+\* The entire region\
+\* All counties\
+\* All national forests\
+\* All forest practice districts or the equivalent (e.g., Oregon has Forest Practice Areas). The number of these is flexible but must correspond to avaliable CSV data.\
+- DAT.FILE: The order of data files is Region (State), County, National Forests, and then one per Forest Practice District or equivalent.\
+- The current script Tab4.12.R relies on the values within the CSV file column for carbon stock values (e.g., values include Live trees, Down wood, etc.). Hopefully the provided carbon stock value text in that column is similarly usable in future data sets provided by FIA.
+
+*Tab4.31*\
+Forest carbon pools by 10-year inventory period. The table compares findings from the initial 10 years with most recent 10 years.\
+- No other table-specific columns.
+
+*Tab4.32*\
+Live tree carbon stocks by ownership and land status. The table compares findings from the initial 10 years with most recent 10 years.\
+- No other table-specific columns.
+
+*Tab4.33*\
+Forest carbon stocks by ownership and land status. The table compares findings from the initial 10 years with most recent 10 years.\
+- No other table-specific columns.
+
+*Tab6*\
+This tab controls the creation of tables 6.5, 6.6, and 6.9. These three tables only summarize HWP values. Specifically, this tab is used to renames the HWP owner groups. The owner groups are column labels (not including the first column, "Year") listed at the top of the 'Harvest' Excel tab for the HWP data input file. This table is described in the [HWP documentation](https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-prov-input-harvest). For example, if there is an owner column for 'Private and Tribal', the table will be processed by the HWP code that the Forest Carbon Dashboard sources and the ownership name is transformed to "Private.and.Tribal". Tab6 offers a remedy for strange HWP output names.
+
+*Tab7*\
+This tab controls some caption content for tables 7.1, 7.2, and 7.3. All three of these table combine and summarize ecosystem carbon estimates with HWP estimates. The caption text is relevant to the reporting period of interest.

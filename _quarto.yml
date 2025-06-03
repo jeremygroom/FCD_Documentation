@@ -29,3 +29,5 @@ format:
 
 editor: visual
 
+number-sections: true
+

@@ -1,4 +1,4 @@
-# Preface {.unnumbered}
+# Preface {#pref}
 
 Welcome to the documentation for the Forest Carbon Dashboard. The Forest Carbon Dashboard conveys the state of carbon and carbon change (flux) for regions of land. The United States Department of Agriculture's [Forest Inventory Analysis Program](https://research.fs.usda.gov/programs/fia) generates the information used in the dashboard. The information is processed and provided by FIA staff to regional (i.e., state-level) parties such as [Cal Fire](https://www.fire.ca.gov/). Cal Fire and the Oregon Department of Forestry (another user of this information) produce reports that provide summaries of ecosystem carbon for their regions on a semi-annual basis. One example is the report by @christensen2019ab. The motivation for the dashboard is the effort and size of the report: automating the process to the extent possible provides both publishers and readers with an efficient way to approach the sizable amount of data these projects generate. The motivation for this document is to provide users with an understanding of how to use the dashboard and how they can upload and view their own information.
 
