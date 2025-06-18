@@ -1,7 +1,27 @@
-# Dashboard Summary and Use
+# Dashboard Summary and Use {#sec-dboarduse}
 
-In summary, this book has no content whatsoever.
+## App Overview {#sec-dboarduse-overview}
 
-```{r}
-1 + 1
-```
+The [dashboard](https://groomanalyticsllc.shinyapps.io/Forest-Carbon-Dashboard/) is a tool primarily designed for presenting forest carbon estimates as figures and tables. It secondarily incorporates harvested wood products (HWP) information as well, relying on HWP data processed by an external [HWP model](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/).
+
+The dashboard relies on data summaries provided by the USDA Forest Service of Forest Inventory Analysis (FIA) databases. Currently the dashboard displays FIA and HWP data for California, for data collected up to 2020 and 2021.
+
+Users can explore figure under the **Figures** tab, Tables under the **Tables** tab, or upload their own data, view the source files at GitHub, or access this documentation under the **Documentation and Data Upload** tab. Users can find author contact information at the **Contact Us** tab. Below all tables and figures are written explanations of what each is displaying.
+
+If users upload their own data to the app, they can select between California data sets and their own in the **Select a region** and **Select a year** drop-down menus at any time.
+
+## Figures {#sec-dboarduse-figs}
+
+The Figures tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.
+
+Each sub-tab also provides buttons that allow users to download a .png image file (*Download PNG*), an RDS file (*Download RDS*), or a Microsoft Excel data file (*Download Data (xlsx)*) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for "R Data Structure", and in this case it contains the ggplot object (package ggplot2, @wickham2016). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.   
+
+The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.    
+
+
+
+## Tables {#sec-dboarduse-tables}
+
+## Documentation and Data Upload {#sec-dboarduse-docdnld}
+
+## Contact Us {#sec-dboarduse-cntct}
