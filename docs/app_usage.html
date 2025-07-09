@@ -224,26 +224,41 @@ div.csl-indent {
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-dboarduse-overview"><span class="header-section-number">3.1</span> App Overview</h2>
 <p>The <a href="https://groomanalyticsllc.shinyapps.io/Forest-Carbon-Dashboard/">dashboard</a> is a tool primarily designed for presenting forest carbon estimates as figures and tables. It secondarily incorporates harvested wood products (HWP) information as well, relying on HWP data processed by an external <a href="https://groomanalyticsllc.shinyapps.io/HWP-C-vR/">HWP model</a>.</p>
 <p>The dashboard relies on data summaries provided by the USDA Forest Service of Forest Inventory Analysis (FIA) databases. Currently the dashboard displays FIA and HWP data for California, for data collected up to 2020 and 2021.</p>
-<p>Users can explore figure under the <strong>Figures</strong> tab, Tables under the <strong>Tables</strong> tab, or upload their own data, view the source files at GitHub, or access this documentation under the <strong>Documentation and Data Upload</strong> tab. Users can find author contact information at the <strong>Contact Us</strong> tab. Below all tables and figures are written explanations of what each is displaying.</p>
+<p>Users can explore figures under the <strong>Figures</strong> tab, Tables under the <strong>Tables</strong> tab, or upload their own data, view the source files at GitHub, or access this documentation under the <strong>Documentation and Data Upload</strong> tab. Users can find author contact information at the <strong>Contact Us</strong> tab. Below all tables and figures are written explanations of what each is displaying.</p>
 <p>If users upload their own data to the app, they can select between California data sets and their own in the <strong>Select a region</strong> and <strong>Select a year</strong> drop-down menus at any time.</p>
 </section>
 <section id="sec-dboarduse-figs" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-dboarduse-figs"><span class="header-section-number">3.2</span> Figures</h2>
-<p>The Figures tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.</p>
-<p>Each sub-tab also provides buttons that allow users to download a .png image file (<em>Download PNG</em>), an RDS file (<em>Download RDS</em>), or a Microsoft Excel data file (<em>Download Data (xlsx)</em>) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for “R Data Structure”, and in this case it contains the ggplot object (package ggplot2, <span class="citation" data-cites="wickham2016">Wickham (<a href="references.html#ref-wickham2016" role="doc-biblioref">2016</a>)</span>). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.</p>
+<p>The <strong>Figures</strong> tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.</p>
+<p>Each sub-tab also provides buttons that allow users to download a .png image file (<em>Download PNG</em>), an RDS file (<em>Download RDS</em>), or a Microsoft Excel data file (<em>Download Data (xlsx)</em>) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for “R Data Structure”, and in this case it contains the ggplot object (package ggplot2, <span class="citation" data-cites="wickham2016">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham 2016</a>)</span>). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.</p>
 <p>The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.</p>
 </section>
 <section id="sec-dboarduse-tables" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-dboarduse-tables"><span class="header-section-number">3.3</span> Tables</h2>
+<p>Like the <strong>Figures</strong> tab, the <strong>Tables</strong> tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus providing related tables.</p>
+<p>Below each displayed table are two buttons, <em>Download CSV</em> and <em>Download DOCX</em>. The Download CSV button allows users to download the compiled and arranged data table that was used to construct the table in the app. The user can plot those data, manipulate them, or create their own table. The <em>Download DOCX</em> button will download a single Microsoft Word document that contains the table. Users can edit the contents of the table.</p>
+<p>All tables were created using the R package flextable by <span class="citation" data-cites="flextable2024">Gohel and Skintzos (<a href="references.html#ref-flextable2024" role="doc-biblioref">2024</a>)</span>. The package officer by <span class="citation" data-cites="officer2024">Gohel and Moog (<a href="references.html#ref-officer2024" role="doc-biblioref">2024</a>)</span> enabled saving output as word documents.</p>
 </section>
 <section id="sec-dboarduse-docdnld" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="sec-dboarduse-docdnld"><span class="header-section-number">3.4</span> Documentation and Data Upload</h2>
+<p>The <strong>Documentation and Data Upload</strong> tab has five distinct sub-tabs. The <strong>Documentation</strong> sub-tab is a link to this documentation website. If you wish to dive deeper into this documentation you are welcome to visit and clone its <a href="https://github.com/jeremygroom/FCD_Documentation">GitHub repository</a>. It is written in <a href="https://quarto.org/">Quarto</a>.</p>
+<p>The <strong>GitHub Repository</strong> sub-tab is a link to the GitHub repository[[NEED TO SET UP, EDIT THIS]] for the source code and data sets for the app.</p>
+<p>The <strong>Sample Zipped Data</strong> sub-tab will download the zipped 2021 California dataset for exploring the upload capabilities.</p>
+<p>The <strong>Sample HWP Data</strong> sub-tab will download a Microsoft Excel file of the California 2021 Harvested Wood Products input dataset. To access the HWP data using the stand-alone version of the app, see <a href="data_prep.html#sec-dataprep-genctrl-globaltab" class="quarto-xref"><span>Section 4.3.3</span></a>.</p>
+<p>The <strong>Upload Your Data</strong> sub-tab will allow you to bring your own data into the app. See <a href="app_upload.html" class="quarto-xref"><span>Chapter 5</span></a>. To practice uploading data, download the files from the two previously-mentioned sub-tabs.</p>
 </section>
 <section id="sec-dboarduse-cntct" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="sec-dboarduse-cntct"><span class="header-section-number">3.5</span> Contact Us</h2>
+<p>This tab provides the contact information for the app creator, Jeremy Groom (<a href="http://www.groomanalytics.com">Groom Analytics LLC</a>) and his coauthor and project lead, Nadia Tase (<a href="https://www.fire.ca.gov/">California Department of Forestry and Fire Protection</a>). Please reach out to Jeremy if you have technical questions about the dashboard, datasets, accessibility issues, or bugs.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-officer2024" class="csl-entry" role="listitem">
+Gohel, David, and Stefan Moog. 2024. <em>Officer: Manipulation of Microsoft Word and PowerPoint Documents</em>. <a href="https://CRAN.R-project.org/package=officer">https://CRAN.R-project.org/package=officer</a>.
+</div>
+<div id="ref-flextable2024" class="csl-entry" role="listitem">
+Gohel, David, and Panagiotis Skintzos. 2024. <em>Flextable: Functions for Tabular Reporting</em>. <a href="https://CRAN.R-project.org/package=flextable">https://CRAN.R-project.org/package=flextable</a>.
+</div>
 <div id="ref-wickham2016" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>

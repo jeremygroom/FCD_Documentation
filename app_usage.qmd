@@ -6,22 +6,38 @@ The [dashboard](https://groomanalyticsllc.shinyapps.io/Forest-Carbon-Dashboard/)
 
 The dashboard relies on data summaries provided by the USDA Forest Service of Forest Inventory Analysis (FIA) databases. Currently the dashboard displays FIA and HWP data for California, for data collected up to 2020 and 2021.
 
-Users can explore figure under the **Figures** tab, Tables under the **Tables** tab, or upload their own data, view the source files at GitHub, or access this documentation under the **Documentation and Data Upload** tab. Users can find author contact information at the **Contact Us** tab. Below all tables and figures are written explanations of what each is displaying.
+Users can explore figures under the **Figures** tab, Tables under the **Tables** tab, or upload their own data, view the source files at GitHub, or access this documentation under the **Documentation and Data Upload** tab. Users can find author contact information at the **Contact Us** tab. Below all tables and figures are written explanations of what each is displaying.
 
 If users upload their own data to the app, they can select between California data sets and their own in the **Select a region** and **Select a year** drop-down menus at any time.
 
 ## Figures {#sec-dboarduse-figs}
 
-The Figures tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.
+The **Figures** tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.
 
-Each sub-tab also provides buttons that allow users to download a .png image file (*Download PNG*), an RDS file (*Download RDS*), or a Microsoft Excel data file (*Download Data (xlsx)*) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for "R Data Structure", and in this case it contains the ggplot object (package ggplot2, @wickham2016). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.   
+Each sub-tab also provides buttons that allow users to download a .png image file (*Download PNG*), an RDS file (*Download RDS*), or a Microsoft Excel data file (*Download Data (xlsx)*) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for "R Data Structure", and in this case it contains the ggplot object (package ggplot2, [@wickham2016]). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.
 
-The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.    
-
-
+The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.
 
 ## Tables {#sec-dboarduse-tables}
 
+Like the **Figures** tab, the **Tables** tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus providing related tables.
+
+Below each displayed table are two buttons, *Download CSV* and *Download DOCX*. The Download CSV button allows users to download the compiled and arranged data table that was used to construct the table in the app. The user can plot those data, manipulate them, or create their own table. The *Download DOCX* button will download a single Microsoft Word document that contains the table. Users can edit the contents of the table.
+
+All tables were created using the R package flextable by @flextable2024. The package officer by @officer2024 enabled saving output as word documents.
+
 ## Documentation and Data Upload {#sec-dboarduse-docdnld}
 
+The **Documentation and Data Upload** tab has five distinct sub-tabs. The **Documentation** sub-tab is a link to this documentation website. If you wish to dive deeper into this documentation you are welcome to visit and clone its [GitHub repository](https://github.com/jeremygroom/FCD_Documentation). It is written in [Quarto](https://quarto.org/).
+
+The **GitHub Repository** sub-tab is a link to the GitHub repository\[\[NEED TO SET UP, EDIT THIS\]\] for the source code and data sets for the app.
+
+The **Sample Zipped Data** sub-tab will download the zipped 2021 California dataset for exploring the upload capabilities.
+
+The **Sample HWP Data** sub-tab will download a Microsoft Excel file of the California 2021 Harvested Wood Products input dataset. To access the HWP data using the stand-alone version of the app, see @sec-dataprep-genctrl-globaltab.
+
+The **Upload Your Data** sub-tab will allow you to bring your own data into the app. See @sec-upld. To practice uploading data, download the files from the two previously-mentioned sub-tabs.
+
 ## Contact Us {#sec-dboarduse-cntct}
+
+This tab provides the contact information for the app creator, Jeremy Groom ([Groom Analytics LLC](http://www.groomanalytics.com)) and his coauthor and project lead, Nadia Tase ([California Department of Forestry and Fire Protection](https://www.fire.ca.gov/)). Please reach out to Jeremy if you have technical questions about the dashboard, datasets, accessibility issues, or bugs.

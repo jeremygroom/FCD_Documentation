@@ -1,7 +1,11 @@
 # Uploading Your Data {#sec-upld}
 
-In summary, this book has no content whatsoever.
+## Overview {#sec-upld-overview}
 
-```{r}
-1 + 1
-```
+The **Data Upload and Processing** tab allows users to bring their own data into the dashboard and have the information displayed as figures and tables. The dashboard has been constructed such that it allows for specific data files to be missing. If a file is missing or fails to pass certain quality assessment checks then the tables and figures that rely upon that file will not be displayed but the app will continue to function.
+
+The **Data Upload and Processing** tab depends on two input files from the user. The first is a zip file containing carbon flux, carbon stock, land area, and land conversion tables. This zip file contains the items described in @sec-dataprep-folder. The second file is optional, and it is a Harvested Wood Products data set that can be used by the [Harvested Wood Products app](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/). Construction of the HWP dataset is described in the [HWP documentation](https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-prov).
+
+The Forest Carbon Dashboard app is an R instance on the cloud.  When the app is reached online, the necessary files and programs are temporarily made available.  Users can upload their own data to the app and explore their data.  Once the app is closed, the instance disappears, and the user must upload their data again to view it at a separate time.  For this reason there are two pathways for users to upload their non-HWP data.  They first upload the zip file described above.  Once the file has been processed and passes the QA check, the user can download the resulting RDS file to their computer.  When the user returns to the app to view the same data again, they can upload their existing RDS file or go through the steps to process their zipped data folder again. 
+
+Below we describe the process for uploading user data.  We begin with the processing of the user zip file.  This will generate a single RDS that the user can download.  Once downloaded, 

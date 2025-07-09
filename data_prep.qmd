@@ -1,6 +1,6 @@
-# Preparing Your Data
+# Preparing Your Data {#sec-dataprep}
 
-## **Your data folder**
+## **Your data folder** {#sec-dataprep-folder}
 
 Users provide a suite of folders that follow this format:
 
@@ -14,19 +14,19 @@ The USDA Forest Service FIA program personnel can provide the CSV files that pop
 
 We will now spend a great deal of verbiage describing what goes into Script_Controls.xlsx.
 
-## Features of table and figure scripts
+## Features of table and figure scripts {#sec-dataprep-features}
 
 The table and figure scripts were built with flexibility in mind.\
 - CSV files provided by the FIA may change from year to year in column titles. The code finds key words or phrases in each target column and gives those columns specific names, which it then works with to create the figure or table.\
 - The Script_Control.xlsx file allows users to control the terms that the table and figure scripts search for, use, and display. The scripts are built to be agnostic towards column values, relying entirely on what the user provides. The user must check columns to verify that the column values being sought exist and have not been altered.
 
-## *General data set and script control features*
+## *General data set and script control features* {#sec-dataprep-genctrl}
 
-### Data set features
+### Data set features {#sec-dataprep-genctrl-datasetfeatures}
 
 The CSV files provided by FIA staff may have extremely long file names. The names are so long that we recommend that users save the files close to their root directory. This hopefully allows users the ability of opening the CSV files. It is necessary for users to open these files so that they can verify that the items listed in Script_Control.xlsx tabs are accurate or need updated. The code in the app is constructed to search for files using a unique string that is shorter than the actual file name.
 
-### Script control features
+### Script control features {#sec-dataprep-genctrl-scriptctrl}
 
 The file Script_Control.xlsx (Script Control) provides specific information to the app on how to label files, where to find files, how to cope with specific features of CSV data files, and what processes to run. There are three distinct parts to Script Control: the Global tab, Fig tabs, and Tab tabs.
 
@@ -38,7 +38,7 @@ The Tab tabs control all tables generated. Like the Fig tabs, the Tab tabs contr
 
 Table and figure tabs were created around the tables and figures listed in @christensen2019ab. We recommend that users review that source (or the app output) to orient themselves regarding which data sets are relevant to which tables and figures.
 
-### The Global Tab
+### The Global Tab {#sec-dataprep-genctrl-globaltab}
 
 This section describes important aspects of the Script Control's Global Tab. The user should review and alter all of these settings to align with their data and needs.
 
@@ -68,7 +68,7 @@ This section describes important aspects of the Script Control's Global Tab. The
 
 -   OWN.HWP.DIR: This option also is only relevant for users running the stand-alone script. Under this column heading the user lists is the folder location and file name for the user's HWP data when they entered "OWN.DIR" for the column "SOURCE.GIT". We recommend placing the Excel file in the repository's base file (wherever `getwd()` is for the project) and just listing the file's Excel name; e.g., 'Some_Data.xlsx'. This simplifies what is entered. For instance, entering '/MyData/Home/Some_Data.xlsx' opens oneself up to problems (was that initial backslash needed? Is the file path full and correct? Is the file path in relation to the working directory or the main directory?).
 
-### General Figure and Table Tab Settings
+### General Figure and Table Tab Settings {#sec-dataprep-figtablesettings}
 
 With the exceptions of Tab 6 and Tab 7, all table and figure tabs share certain columns.
 
