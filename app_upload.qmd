@@ -2,10 +2,54 @@
 
 ## Overview {#sec-upld-overview}
 
-The **Data Upload and Processing** tab allows users to bring their own data into the dashboard and have the information displayed as figures and tables. The dashboard has been constructed such that it allows for specific data files to be missing. If a file is missing or fails to pass certain quality assessment checks then the tables and figures that rely upon that file will not be displayed but the app will continue to function.
+The **Data Upload and Processing** tab allows users to bring their own data into the dashboard and have the information displayed as figures and tables. The dashboard has been constructed such that it continues to work even with the absence of specific data files. If a file is missing or fails to pass certain quality assessment checks then the tables and figures that rely upon that file will not be displayed but the app will continue to function.
 
-The **Data Upload and Processing** tab depends on two input files from the user. The first is a zip file containing carbon flux, carbon stock, land area, and land conversion tables. This zip file contains the items described in @sec-dataprep-folder. The second file is optional, and it is a Harvested Wood Products data set that can be used by the [Harvested Wood Products app](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/). Construction of the HWP dataset is described in the [HWP documentation](https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-prov).
+![Flow chart of data loading steps including ocurrences of errors.](images/LoadDataFlow.png){#fig-load fig-alt="A diagram of data loading options described in the text."}
 
-The Forest Carbon Dashboard app is an R instance on the cloud.  When the app is reached online, the necessary files and programs are temporarily made available.  Users can upload their own data to the app and explore their data.  Once the app is closed, the instance disappears, and the user must upload their data again to view it at a separate time.  For this reason there are two pathways for users to upload their non-HWP data.  They first upload the zip file described above.  Once the file has been processed and passes the QA check, the user can download the resulting RDS file to their computer.  When the user returns to the app to view the same data again, they can upload their existing RDS file or go through the steps to process their zipped data folder again. 
+The **Data Upload and Processing** tab depends on two input files from the user. The first is a zip file containing carbon flux, carbon stock, land area, and land conversion tables. This zip file contains the items described in @sec-dataprep-folder. The second file is optional, and it is a Harvested Wood Products data set that can be used by the [Harvested Wood Products app](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/). Construction of the HWP dataset is described in the [HWP documentation](https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-prov). The two data sets are uploaded as part of the "New data process" (green) boxes in @fig-load.
 
-Below we describe the process for uploading user data.  We begin with the processing of the user zip file.  This will generate a single RDS that the user can download.  Once downloaded, 
+The Forest Carbon Dashboard app is an R instance on the cloud.  When the app is accessed online, the necessary files and programs are temporarily made available.  Users can upload their own data to the app and explore their data.  Once the app is closed, the instance disappears, and the user must upload their data again to view it at a separate time.  For this reason there are two pathways for users to upload their non-HWP data.  They first upload the zip file described in @fig-load.  Once the file has been processed and passes the QA check, the user can download the resulting RDS file to their computer.  When the user returns to the app to view the same data again, they can upload their existing RDS file or go through the steps to process their zipped data folder again.  Note that buttons will become available as data upload steps and checks are passed.   
+
+## Uploading the zip folder {#sec-upld-zip}
+
+The R code behind the **Data Upload and Processing** is complex and covers many contingencies.  The user starts be ensuring that the radio button "Process new data (zip file)" is selected.  Then the user clicks the "Browse..." button and directs the app to the zip folder.  The zip folder is then uploaded to the R Shiny instance on Shinyapps.io.  The app will state that the upload is complete unless an error occurs.  
+
+![A screenshot (with purple text added) showing where to include HWP data if the user wishes.](images/upld-zip1.png){#fig-zip1 fig-alt="A screenshot of the 'Data Upload and Processing' tab where a zip file has been loaded and the user can decide to upload HWP data or proceed without doing so."}
+
+The user can decide (@fig-zip1) whether to include HWP data in the upload process or not.  If they click on the radio button they will be prompted to upload the HWP Excel data file (@fig-zip2).  Users should not change their mind about uploading the HWP data and just click "Run QC and create data file".  This will proceed to perform QC checks of the zipped folder data but will not allow the process to proceed.  This isn't a big deal; the solution is to reload the zip folder, or avoid the situation by unclicking the "Include HWP data processing" box.    
+
+![Screenshot of changes to the Data Upload and Processing tab when selecting to include HWP data.](images/upld-zip2.png){#fig-zip2 fig-alt="A screenshot of the 'Data Upload and Processing' tab where the user has selected to include HWP data."}
+
+Now, whether or not the HWP data have been uploaded, the user clicks "Run QC and create data file".  This triggers a lot of code to run behind the scenes.  The zip folder is unzipped in the R Shiny instance.  The code then performs a step-by-step test of loading and checking files.  First it examines things like the existence of folders and verifies that they have the expected names.  It also opens and checks the global worksheet settings for the Script_Control.xlsx (Script Control) file.  It then moves on to looking for data sheets as listed in the Script Control tabs for each table and figure.  As it progresses it creates and fills two tables, one or both of which should be downloadable even if the QC runs into an intractable error (unless it can't even get that far, in which case the app will state what the error is, probably in a precise and unhelpful manner. In that case, best to review @sec-dataprep).      
+
+![Screenshot of successfully uploaded and QC'ed data set. Buttons are available for downloading QA tables and the data set, and for incorporating the data into the app.](images/upld-zip3.png){#fig-zip3 fig-alt="A screenshot of the 'Data Upload and Processing' tab where the user can download QA files, the data set file, and incorporate the uploaded data into the app."}  
+
+The two QA tables produced are the QA report (saved as 'qa_report_<date>_<time>.csv'; button "Download QA Report", @fig-zip3) and the Files Available report ('files_available_<date>_<time>.csv'; button "Download Available File Report").  The QA report will provide information on the item being checked (column "CheckType");  For instance, the value "Fig2.4" indicates that the QA check is for the Script Control tab for that figure. The column "Check" provides an abbreviation of the type of check being performed.  The abbreviations (hopefully) make sense when taking the Script Control tab in question into consideration along with the "Notes" column entry.  A check such as "DataExist" is searching for the CSV indicated by the tab in question.  Col_OWNERS.LISTED_inData indicates that the OWNERS.LISTED column in a particular tab contained entries that were found in a specific data file.  A suffix of a 1 or higher in the Notes column indicates which data set the test is performed on if there is more than one for a particular table or figure. The tests perhaps make most sense when considered in the context of how the data set control features were created (@sec-dataprep-features).  At any rate, the QA report can provide answers about why data didn't upload correctly or why certain tables and figures are not appearing in the app.
+
+The Files Available report is one that the app itself uses to determine which tables and figures to display.  The CSV file lists which tables and figures the app can display.  It should summarize findings for the QA report. Behind the scenes, the code places the Files Available table into the RDS file. 
+
+If the data processes successfully, a third button, "Download RDS file" (@fig-zip3) will appear.  If a user suspects that they will need to upload the same data repeatedly, they may wish to download and save the RDS file. As depicted in @fig-load with the purple pathway, the uploaded RDS file will allow the user to bypass loading the HWP data and the QC process, and proceed directly to loading the data into the app. 
+
+### HWP data specifics {#sec-upld-zip-hwp}
+
+When the user uploads the HWP Excel data file, the app sources the HWP code from the [HWP GitHub repository](https://github.com/jeremygroom/HWP-C-vR) and attempts to run the code.  The app does not perform any QA of the HWP data; If the HWP data set triggers an error, upload the data set into the [HWP dashboard](https://groomanalyticsllc.shinyapps.io/HWP-C-vR/) and verify that it works there. If the HWP QA fails, examine the HWP QA report to find out where the error may lie.  
+
+The user is entirely responsible for providing HWP data that aligns with their Forest Carbon Dashboard data.  If the HWP data is five years out of date, the data will still be incorporated.  
+
+## Viewing the uploaded data {#sec-upld-view}  
+
+When the user clicks the "Add data to app" button (@fig-zip3) a message appears in the right-hand corner ("Data added successfully!...").  At this time the uploaded data should be selectable; click the drop-down menu under "Select a region" in the upper left corner of the app.  The name of your uploaded data should appear (e.g., @fig-zip4). 
+
+![Screenshot of selection of uploaded data in the app.](images/upld-zip4.png){#fig-zip4 fig-alt="A screenshot of the selection of the uploaded data from a drop-down menu in the app."}  
+
+If the uploaded data set did not include HWP data then certain tables will not be displayed, such as "HWP Stocks by Ownership" and "Total Carbon Stocks in Ecosystem and HWP" under the Tables tab "10-year Inventory Summaries and HWP Stock Tables".  The Shiny code only renders tables related to HWP if the HWP data are uploaded. 
+
+
+
+
+
+
+
+
+
+
