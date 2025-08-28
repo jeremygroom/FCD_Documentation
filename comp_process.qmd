@@ -145,12 +145,9 @@ Another note: My Mac has an Apple M4 chip and is running on the Sequoia 15.6 ope
 
 If you get a message that includes something like `configure: error: Failed to download OpenSSL sources from Apple. Please install OpenSSL headers before installing PKI.` The goal is to define the location of SSL headers for R. I recommend the following steps:
 
-Download the program [Homebrew](https://brew.sh/). The webpage has directions. Once installed, from the Terminal type:
+Download the program [Homebrew](https://brew.sh/). The webpage has directions.
 
-`brew install openssl`. R then needs to know where the SSL libraries are.\
-In the Terminal, type: `brew list openssl@3`. This provides paths for different SSL objects In R, I enter
-
-`Sys.setenv(LDFLAGS = "-L/opt/homebrew/Cellar/openssl@3/lib")` Your path (`/opt/homebrew/…/lib`) may differ.
+Once installed, from the Terminal type: `brew install openssl`. R then needs to know where the SSL libraries are. In the Terminal, type: `brew list openssl@3`. This provides paths for different SSL objects In R, I enter `Sys.setenv(LDFLAGS = "-L/opt/homebrew/Cellar/openssl@3/lib")` . Your path (`/opt/homebrew/…/lib`) may differ.
 
 Then in R \>
 
@@ -166,11 +163,11 @@ Try again in R \> `renv::restore()`
 
 If you have trouble loading the package `rvg`, it could be because the `rvg` package needs the PNG development headers to compile. To fix, install the program `libpng` on the Mac: In the terminal, type `brew install libpng` Then:
 
-`echo 'export LDFLAGS="-L\$(brew --prefix)/lib \$LDFLAGS"' \>\> \~/.zshrc`
+`echo 'export LDFLAGS="-L$(brew --prefix)/lib $LDFLAGS"' >> ~/.zshrc`
 
-`echo 'export CPPFLAGS="-I\$(brew --prefix)/include \$CPPFLAGS"' \>\> \~/.zshrc`
+`echo 'export CPPFLAGS="-I$(brew --prefix)/include $CPPFLAGS"' >> ~/.zshrc`
 
-`echo 'export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH" \>\> \~/.zshrc source \~/.zshrc'`
+`echo 'export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH" >> ~/.zshrc source ~/.zshrc'`
 
 This hopefully allows the `rvg` package to successfully load, or progress further in loading.
 
@@ -194,4 +191,4 @@ Now that the Nano editor is open, include the lines:
 
 `LDFLAGS=-L/usr/local/lib`.)
 
-Close RStudio and open it up again, and give R the command `renv::restore()` again. Hopefully everything loads. If not, an AI may be able to help out with a workaround for the issue.
+Close and reopen RStudio and give R the command `renv::restore()` again. Hopefully everything loads. If not, an AI may be able to help out with a workaround for the issue.
