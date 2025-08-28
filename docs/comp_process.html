@@ -170,11 +170,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#running-the-standalone-code" id="toc-running-the-standalone-code" class="nav-link active" data-scroll-target="#running-the-standalone-code"><span class="header-section-number">6.1</span> Running the standalone code</a>
+  <li><a href="#running-the-standalone-code" id="toc-running-the-standalone-code" class="nav-link active" data-scroll-target="#running-the-standalone-code"><span class="header-section-number">6.1</span> Running the standalone code</a></li>
+  <li><a href="#sec-stndalone-dnld" id="toc-sec-stndalone-dnld" class="nav-link" data-scroll-target="#sec-stndalone-dnld"><span class="header-section-number">6.2</span> R, RStudio, GitHub, and downloading the files</a>
   <ul class="collapse">
-  <li><a href="#code-outline" id="toc-code-outline" class="nav-link" data-scroll-target="#code-outline"><span class="header-section-number">6.1.1</span> <em>Code Outline</em></a></li>
-  <li><a href="#details-for-using-the-standalone-code-by-section" id="toc-details-for-using-the-standalone-code-by-section" class="nav-link" data-scroll-target="#details-for-using-the-standalone-code-by-section"><span class="header-section-number">6.1.2</span> <em>Details for using the Standalone Code by Section</em></a></li>
+  <li><a href="#sec-stndalone-dnld-zip" id="toc-sec-stndalone-dnld-zip" class="nav-link" data-scroll-target="#sec-stndalone-dnld-zip"><span class="header-section-number">6.2.1</span> Compressed file download</a></li>
+  <li><a href="#sec-stndalone-dnld-git" id="toc-sec-stndalone-dnld-git" class="nav-link" data-scroll-target="#sec-stndalone-dnld-git"><span class="header-section-number">6.2.2</span> Clone the GitHub repository</a></li>
   </ul></li>
+  <li><a href="#sec-stndalone-files" id="toc-sec-stndalone-files" class="nav-link" data-scroll-target="#sec-stndalone-files"><span class="header-section-number">6.3</span> <em>File Structure</em></a></li>
+  <li><a href="#sec-stndalone-outline" id="toc-sec-stndalone-outline" class="nav-link" data-scroll-target="#sec-stndalone-outline"><span class="header-section-number">6.4</span> <em>Code Outline</em></a>
+  <ul class="collapse">
+  <li><a href="#sec-stndalone-outline-data" id="toc-sec-stndalone-outline-data" class="nav-link" data-scroll-target="#sec-stndalone-outline-data"><span class="header-section-number">6.4.1</span> <em>Data for the Stand-alone Code</em></a></li>
+  <li><a href="#sec-stndalone-outline-deets" id="toc-sec-stndalone-outline-deets" class="nav-link" data-scroll-target="#sec-stndalone-outline-deets"><span class="header-section-number">6.4.2</span> <em>Details for Using the Stand-alone Code by Section</em></a></li>
+  </ul></li>
+  <li><a href="#sec-standalone-mac" id="toc-sec-standalone-mac" class="nav-link" data-scroll-target="#sec-standalone-mac"><span class="header-section-number">6.5</span> Aside: Running the Code on a Mac</a></li>
   </ul>
 </nav>
     </div>
@@ -202,25 +210,92 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="running-the-standalone-code" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="running-the-standalone-code"><span class="header-section-number">6.1</span> Running the standalone code</h2>
+<p>This chapter explains how to download or clone the GitHub repository and then describes all of the files in the repository. It then provides direction for running the stand-alone R code from your computer.</p>
 <p>The standalone code is provided so that users may generate their tables and figures without the aid of the Shiny app. We recommend reading this text alongside the opened Stand_Alone.R file. The user needs to make a few changes for the script to work.</p>
-<section id="code-outline" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="code-outline"><span class="header-section-number">6.1.1</span> <em>Code Outline</em></h3>
+</section>
+<section id="sec-stndalone-dnld" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-stndalone-dnld"><span class="header-section-number">6.2</span> R, RStudio, GitHub, and downloading the files</h2>
+<p>The code base and data files reside in <a href="https://github.com/">GitHub</a>. There are two ways to download all of the code and associated files. You can either download a compressed (zip) file (~ 31 MB) or clone the GitHub repository. If you clone the repository you can easily update the code from the GitHub site in the future.</p>
+<section id="sec-stndalone-dnld-zip" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-stndalone-dnld-zip"><span class="header-section-number">6.2.1</span> Compressed file download</h3>
+<p>To obtain the compressed file, go to the <a href="https://github.com/jeremygroom/Forest-Carbon-Dashboard.git">GitHub repository</a>, click the green “Code” button above the list of files, and then select the “Download Zip” option (see <a href="#fig-dnldzip" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>). Unzip the folder on your machine and then check out the file structure and follow the below instructions for running the stand-alone version.</p>
+<div id="fig-dnldzip" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Location of the downloadable zip file for all files and folders from the GitHub repository.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dnldzip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/downld.png" class="img-fluid figure-img" alt="Location of the downloadable zip file for all files and folders from the GitHub repository.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dnldzip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Location of GitHub repository zip download.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-stndalone-dnld-git" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-stndalone-dnld-git"><span class="header-section-number">6.2.2</span> Clone the GitHub repository</h3>
+<p>To successfully clone the repository onto your machine, you will need to have a program called Git installed on your computer. It may already be installed. There is a bit of a learning curve to getting Git up and going, as well as connecting to GitHub through RStudio. However, there are helpful websites that can smooth the way:</p>
+<ul>
+<li><a href="https://happygitwithr.com/index.html">Happy Git and GitHub for the useR</a><br>
+</li>
+<li><a href="https://cfss.uchicago.edu/setup/git-with-rstudio/">Using Git within RStudio</a>.</li>
+</ul>
+<p>If you are not already using GitHub or similar, getting Git/GitHub/RProject set up may take an hour or two. I recommend reading through Happy Git website carefully and following its instructions. Going slowly is going quickly. You will also need to <a href="https://github.com/signup?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">create a GitHub account</a>.</p>
+<p>Once you have Git set up on your machine and have verified that it is doing what you want you are ready to clone the repository. The following is based on Chapter 16 in Happy Git and Github (specifically 16.2), and assumes that your RStudio can connect to GitHub:<br>
+1. Select a location on your computer where you would like a folder containing the code to be placed.<br>
+2. Start R studio.<br>
+3. Select the following menu options: File &gt; New Project &gt; Version Control &gt; Git<br>
+4. In the “Repository URL” paste the URL of the HWP model’s GitHub repository: <a href="https://github.com/jeremygroom/Forest-Carbon-Dashboard.git" class="uri">https://github.com/jeremygroom/Forest-Carbon-Dashboard.git</a><br>
+This will automatically populate the blank below the URL with the project name (HWP-C-vR).<br>
+5. Click “Create Project”</p>
+<p>RStudio will now open the HWP-C-vR.Rproj file for you. You are about ready to run the code. But first, we describe the files you’ve downloaded.</p>
+</section>
+</section>
+<section id="sec-stndalone-files" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-stndalone-files"><span class="header-section-number">6.3</span> <em>File Structure</em></h2>
+<p><em>/Forest-Carbon-Dashboard/</em><br>
+This folder contains all files associated with the model, including template data, the Shiny application, the stand-alone code and folders, R environment controls, and the RStudio project that runs it all.</p>
+<p>Forest-Carbon-Dashboard.Rproj: Open this to operate the Shiny app or run the stand-alone code from your computer.</p>
+<p>app.R: This is the main code file that runs the Shiny application.</p>
+<p>Stand_Alone.R: This is the main code file for running the stand-alone FCD code.</p>
+<p>example.dotx: This is a MS Word file that is used for formatting output tables.</p>
+<p>README.md: Information for visitors of the GitHub repository.</p>
+<p>renv.loc: R environment information</p>
+<p><em>/Forest-Carbon-Dashboard/Data/</em></p>
+<p>This folder contains California 2020 and 2021 folders that contain the data used to create the respective RDS files (California.2020.rds, California.2021.rds) used by the app. It also contains the Test California 2021.zip file that can be opened and run through the Stand_Alone.R code.</p>
+<p><em>/Forest-Carbon-Dashboard/RCode/</em></p>
+<p>This folder contains the code used to create all tables and figures in the app. It also contains the code mentioned in <a href="#fig-LABEL" class="quarto-xref">Figure&nbsp;<span>6.2</span></a> and <a href="#sec-stndalone-outline" class="quarto-xref"><span>Section 6.4</span></a> and <a href="#sec-stndalone-outline-deets" class="quarto-xref"><span>Section 6.4.2</span></a>.</p>
+<p><em>/Forest-Carbon-Dashboard/RCode/Shiny_Code/</em></p>
+<p>This folder contains code specific for the Shiny app along with some images used by the app. Many of the code files are Shiny modules, which are similar to functions. “Plot_” and “Table_” modules control individual tabs in the Shiny app.</p>
+<p><em>/Forest-Carbon-Dashboard/renv/</em></p>
+<p>This folder contains R environment variables that the Shiny application (app.r) and stand-alone model (Stand_Alone.R) rely upon. The environmental variables include version information for R and the libraries used. The user can ignore this folder.</p>
+<p><em>/Forest-Carbon-Dashboard/Results/</em></p>
+<p>This folder contains the subfolder Figures. Some code in Stand_Alone.R will add a Tables folder (see <a href="#sec-stndalone-outline-deets" class="quarto-xref"><span>Section 6.4.2</span></a>). Both contain the output from the Stand_Alone.R code.</p>
+<p><em>/Forest-Carbon-Dashboard/rsconnect/</em></p>
+<p>This folder contains shinyapps.io deployment information. The user can ignore this folder.</p>
+<p><em>/Forest-Carbon-Dashboard/www/</em></p>
+<p>This folder contains images used in the Shiny app, primarily logos and such. The user can ignore this folder.</p>
+</section>
+<section id="sec-stndalone-outline" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-stndalone-outline"><span class="header-section-number">6.4</span> <em>Code Outline</em></h2>
 <div id="fig-LABEL" class="quarto-float quarto-figure quarto-figure-center anchored" alt="ALT">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Standalone_dependencies.png" class="img-fluid figure-img" alt="ALT">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LABEL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: Data and code source files associated with Stand_Alone.R
+Figure&nbsp;6.2: Data and code source files associated with Stand_Alone.R
 </figcaption>
 </figure>
 </div>
 <p>The Settings section in the standalone code relies on user input for reading data files correctly and sources the Functions.R script. If the user already has an RDS data file on hand, they can set options to skip the RDS-building step of ‘Create RDS File’.</p>
 <p>Within the ‘Create RDS File’ step the code runs a QA of the provided data files. The QA_Code.R script reads the Script_Control.xlsx file for setting information to check against the CSV data files. The Excel_to_RDS.R builds the input RDS file from Script_Control.xlsx settings and the CSV data files. If the user provides information about an HWP data set, the Excel_to_RDS.R script will source the HWP_Run.R script to include HWP data in the RDS file. The RDS file is saved locally.</p>
 <p>The ‘Read RDS file and load conditions’ section loads the RDS file and obtains settings from the RDS file. The standalone code can proceed with producing tables and figures. The ‘Produce figures and tables’ section sources individual figure and table scripts which each draw upon data from the RDS data file.</p>
+<section id="sec-stndalone-outline-data" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="sec-stndalone-outline-data"><span class="header-section-number">6.4.1</span> <em>Data for the Stand-alone Code</em></h3>
+<p>The user may supply their own data for the Stand-alone code (see <a href="data_prep.html" class="quarto-xref"><span>Chapter 4</span></a>); this can be a productive way to proceed if the user is running into issues with uploading their data to the app for any reason. To run through the Stand_Alone.R code with a prepared dataset, navigate to the folder <code>\Data\</code> and unzip the file <code>Test California 2021.zip</code>.</p>
 </section>
-<section id="details-for-using-the-standalone-code-by-section" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="details-for-using-the-standalone-code-by-section"><span class="header-section-number">6.1.2</span> <em>Details for using the Standalone Code by Section</em></h3>
+<section id="sec-stndalone-outline-deets" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="sec-stndalone-outline-deets"><span class="header-section-number">6.4.2</span> <em>Details for Using the Stand-alone Code by Section</em></h3>
+<p><em>R Environment</em> If the user is opening the Stand_Alone.R file for the first time they should uncomment the code <code>#renv::restore()</code> above the section for Settings and run it. This will load version-specific packages. Mac users should see the final note in this section, <a href="#sec-standalone-mac" class="quarto-xref"><span>Section 6.5</span></a>. Once the packages have been successfully loaded this step should not be necessary again except as the GitHub repository updates the <code>/renv/</code> folder.</p>
 <p><em>Settings</em></p>
 <p>In the subsection “Enter values”, users must enter the <code>year.use</code> value which is the year of their dataset.<br>
 Users must also enter the <code>region.use</code> value, their region name. Note that this will produce text that matches the user’s folder/RDS name.</p>
@@ -236,10 +311,44 @@ Users must also enter the <code>region.use</code> value, their region name. Note
 <p>The script reads the RDS file that had been created earlier or was recently created by the code for the previous section. The script also checks to see if the FMRL and LU folders are empty. This information is used to determine which tables and figures to produce below.</p>
 <p><em>Produce Figures and Tables</em></p>
 <p>The object <code>tabfig.run</code> is important. It will list which tables and figures the QA deems available. If a particular table or figure is not being produced (or produced with a ‘no data’ message) type in <code>tabfig.run</code> to see if the QA prevented the figure’s production, then backtrack to the QA_Report_Table.csv to see why this might be the case.</p>
+<p>Code immediately below the definition of the function <code>source.tab.fcn</code> will create the folder <code>\Results\Tables\</code> in which the output tables will be saved.</p>
 <p>Almost every figure and table is sourced from a separate file. The exceptions are tables and figures that rely on the same code or function to generate them. Users will likely select to save figure .png files (see above). The table code saves individual XLSX documents.</p>
-
-
 </section>
+</section>
+<section id="sec-standalone-mac" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-standalone-mac"><span class="header-section-number">6.5</span> Aside: Running the Code on a Mac</h2>
+<p>Mac users may have varying levels of success loading the version-specific libraries with <code>renv::restore()</code> , depending on their usage of R and RStudio in the past on their machines. For myself, I programmed the app on a Windows machine. I downloaded the repository onto my home mac to see how it would go. It required some substantial effort to get things to run. I hope these pointers help. If they don’t, Claude AI was moderately helpful.</p>
+<p>Note: You may need to perform configuration changes and load programs via the Mac Terminal window (I did not try the RStudio terminal to run these calls on my mac - it may function identically).</p>
+<p><strong><em>Problem: OpenSSL</em></strong></p>
+<p>If you get a message that includes something like <code>configure: error: Failed to download OpenSSL sources from Apple. Please install OpenSSL headers before installing PKI.</code> The goal is to define the location of SSL headers for R. I recommend the following steps:</p>
+<p>Download the program <a href="https://brew.sh/">Homebrew</a>. The webpage has directions. Once installed, from the Terminal type:</p>
+<p><code>brew install openssl</code>. R then needs to know where the SSL libraries are.<br>
+In the Terminal, type: <code>brew list openssl@3</code>. This provides paths for different SSL objects In R, I enter</p>
+<p><code>Sys.setenv(LDFLAGS = "-L/opt/homebrew/Cellar/openssl@3/lib")</code> Your path (<code>/opt/homebrew/…/lib</code>) may differ.</p>
+<p>Then in R &gt;</p>
+<p><code>Sys.setenv(CPPFLAGS = "-I/opt/homebrew/Cellar/openssl@3/include")</code></p>
+<p><code>Sys.setenv(PKG_CONFIG_PATH = "/opt/homebrew/Cellar/openssl@3/lib/pkgconfig")</code></p>
+<p><code>Sys.setenv(PKG_LIBS = "-L/opt/homebrew/Cellar/openssl@3/3.5.2/lib -lssl -lcrypto")</code></p>
+<p>Try again in R &gt; <code>renv::restore()</code></p>
+<p><strong><em>Problem: RVG</em></strong></p>
+<p>If you have trouble loading the package <code>rvg</code>, it could be because the <code>rvg</code> package needs the PNG development headers to compile. To fix, install the program <code>libpng</code> on the Mac: In the terminal, type <code>brew install libpng</code> Then:</p>
+<p><code>echo 'export LDFLAGS="-L\$(brew --prefix)/lib \$LDFLAGS"' \&gt;\&gt; \~/.zshrc</code></p>
+<p><code>echo 'export CPPFLAGS="-I\$(brew --prefix)/include \$CPPFLAGS"' \&gt;\&gt; \~/.zshrc</code></p>
+<p><code>echo 'export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH" \&gt;\&gt; \~/.zshrc source \~/.zshrc'</code></p>
+<p>This hopefully allows the <code>rvg</code> package to successfully load, or progress further in loading.</p>
+<p><strong><em>Problem: RVG and PNG</em></strong></p>
+<p>When I loaded <code>rvg</code> I received an error message that stated that the compiler couldn’t find the <code>png.h</code> header file, even though I’d installed libpng with Homebrew. Claude gave me several workarounds to try. These steps worked for me:</p>
+<p>In the terminal, create the directory <code>.R</code> if it doesn’t exist: <code>mkdir -p ~/.R</code></p>
+<p>Create/edit the Makevars file: <code>nano ~/.R/Makevars</code> .</p>
+<p>Now that the Nano editor is open, include the lines:</p>
+<p><code>CPPFLAGS=-I/opt/homebrew/include</code> and</p>
+<p><code>LDFLAGS=-L/opt/homebrew/lib</code> .</p>
+<p>(If you are using an Intel Mac, include these lines instead:</p>
+<p><code>CPPFLAGS=-I/usr/local/include</code> and</p>
+<p><code>LDFLAGS=-L/usr/local/lib</code>.)</p>
+<p>Close RStudio and open it up again, and give R the command <code>renv::restore()</code> again. Hopefully everything loads. If not, an AI may be able to help out with a workaround for the issue.</p>
+
+
 </section>
 
 </main> <!-- /main -->

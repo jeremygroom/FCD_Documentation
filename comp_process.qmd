@@ -2,9 +2,85 @@
 
 ## Running the standalone code
 
+This chapter explains how to download or clone the GitHub repository and then describes all of the files in the repository. It then provides direction for running the stand-alone R code from your computer.
+
 The standalone code is provided so that users may generate their tables and figures without the aid of the Shiny app. We recommend reading this text alongside the opened Stand_Alone.R file. The user needs to make a few changes for the script to work.
 
-### *Code Outline*
+## R, RStudio, GitHub, and downloading the files {#sec-stndalone-dnld}
+
+The code base and data files reside in [GitHub](https://github.com/). There are two ways to download all of the code and associated files. You can either download a compressed (zip) file (\~ 31 MB) or clone the GitHub repository. If you clone the repository you can easily update the code from the GitHub site in the future.
+
+### Compressed file download {#sec-stndalone-dnld-zip}
+
+To obtain the compressed file, go to the [GitHub repository](https://github.com/jeremygroom/Forest-Carbon-Dashboard.git), click the green "Code" button above the list of files, and then select the "Download Zip" option (see @fig-dnldzip). Unzip the folder on your machine and then check out the file structure and follow the below instructions for running the stand-alone version.
+
+![Location of GitHub repository zip download.](images/downld.png){#fig-dnldzip fig-alt="Location of the downloadable zip file for all files and folders from the GitHub repository."}
+
+### Clone the GitHub repository {#sec-stndalone-dnld-git}
+
+To successfully clone the repository onto your machine, you will need to have a program called Git installed on your computer. It may already be installed. There is a bit of a learning curve to getting Git up and going, as well as connecting to GitHub through RStudio. However, there are helpful websites that can smooth the way:
+
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html)\
+-   [Using Git within RStudio](https://cfss.uchicago.edu/setup/git-with-rstudio/).
+
+If you are not already using GitHub or similar, getting Git/GitHub/RProject set up may take an hour or two. I recommend reading through Happy Git website carefully and following its instructions. Going slowly is going quickly. You will also need to [create a GitHub account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
+
+Once you have Git set up on your machine and have verified that it is doing what you want you are ready to clone the repository. The following is based on Chapter 16 in Happy Git and Github (specifically 16.2), and assumes that your RStudio can connect to GitHub:\
+1. Select a location on your computer where you would like a folder containing the code to be placed.\
+2. Start R studio.\
+3. Select the following menu options: File \> New Project \> Version Control \> Git\
+4. In the “Repository URL” paste the URL of the HWP model's GitHub repository: <https://github.com/jeremygroom/Forest-Carbon-Dashboard.git>\
+This will automatically populate the blank below the URL with the project name (HWP-C-vR).\
+5. Click “Create Project”
+
+RStudio will now open the HWP-C-vR.Rproj file for you. You are about ready to run the code. But first, we describe the files you've downloaded.
+
+## *File Structure* {#sec-stndalone-files}
+
+*/Forest-Carbon-Dashboard/*\
+This folder contains all files associated with the model, including template data, the Shiny application, the stand-alone code and folders, R environment controls, and the RStudio project that runs it all.
+
+Forest-Carbon-Dashboard.Rproj: Open this to operate the Shiny app or run the stand-alone code from your computer.
+
+app.R: This is the main code file that runs the Shiny application.
+
+Stand_Alone.R: This is the main code file for running the stand-alone FCD code.
+
+example.dotx: This is a MS Word file that is used for formatting output tables.
+
+README.md: Information for visitors of the GitHub repository.
+
+renv.loc: R environment information
+
+*/Forest-Carbon-Dashboard/Data/*
+
+This folder contains California 2020 and 2021 folders that contain the data used to create the respective RDS files (California.2020.rds, California.2021.rds) used by the app. It also contains the Test California 2021.zip file that can be opened and run through the Stand_Alone.R code.
+
+*/Forest-Carbon-Dashboard/RCode/*
+
+This folder contains the code used to create all tables and figures in the app. It also contains the code mentioned in @fig-LABEL, @sec-stndalone-outline, and @sec-stndalone-outline-deets.
+
+*/Forest-Carbon-Dashboard/RCode/Shiny_Code/*
+
+This folder contains code specific for the Shiny app along with some images used by the app. Many of the code files are Shiny modules, which are similar to functions. "Plot\_" and "Table\_" modules control individual tabs in the Shiny app.
+
+*/Forest-Carbon-Dashboard/renv/*
+
+This folder contains R environment variables that the Shiny application (app.r) and stand-alone model (Stand_Alone.R) rely upon. The environmental variables include version information for R and the libraries used. The user can ignore this folder.
+
+*/Forest-Carbon-Dashboard/Results/*
+
+This folder contains the subfolder Figures. Some code in Stand_Alone.R will add a Tables folder (see @sec-stndalone-outline-deets). Both contain the output from the Stand_Alone.R code.
+
+*/Forest-Carbon-Dashboard/rsconnect/*
+
+This folder contains shinyapps.io deployment information. The user can ignore this folder.
+
+*/Forest-Carbon-Dashboard/www/*
+
+This folder contains images used in the Shiny app, primarily logos and such. The user can ignore this folder.
+
+## *Code Outline* {#sec-stndalone-outline}
 
 ![Data and code source files associated with Stand_Alone.R](images/Standalone_dependencies.png){#fig-LABEL fig-alt="ALT"}
 
@@ -14,7 +90,15 @@ Within the ‘Create RDS File’ step the code runs a QA of the provided data fi
 
 The ‘Read RDS file and load conditions’ section loads the RDS file and obtains settings from the RDS file. The standalone code can proceed with producing tables and figures. The ‘Produce figures and tables’ section sources individual figure and table scripts which each draw upon data from the RDS data file.
 
-### *Details for using the Standalone Code by Section*
+### *Data for the Stand-alone Code* {#sec-stndalone-outline-data}
+
+The user may supply their own data for the Stand-alone code (see @sec-dataprep); this can be a productive way to proceed if the user is running into issues with uploading their data to the app for any reason. To run through the Stand_Alone.R code with a prepared dataset, navigate to the folder `\Data\` and unzip the file `Test California 2021.zip`.
+
+### *Details for Using the Stand-alone Code by Section* {#sec-stndalone-outline-deets}
+
+*R Environment*
+
+If the user is opening the Stand_Alone.R file for the first time they should uncomment the code `#renv::restore()` above the section for Settings and run it. This will load version-specific packages. Mac users should see the final note in this section, @sec-standalone-mac. Once the packages have been successfully loaded this step should not be necessary again except as the GitHub repository updates the `/renv/` folder.
 
 *Settings*
 
@@ -45,4 +129,69 @@ The script reads the RDS file that had been created earlier or was recently crea
 
 The object `tabfig.run` is important. It will list which tables and figures the QA deems available. If a particular table or figure is not being produced (or produced with a ‘no data’ message) type in `tabfig.run` to see if the QA prevented the figure’s production, then backtrack to the QA_Report_Table.csv to see why this might be the case.
 
+Code immediately below the definition of the function `source.tab.fcn` will create the folder `\Results\Tables\` in which the output tables will be saved.
+
 Almost every figure and table is sourced from a separate file. The exceptions are tables and figures that rely on the same code or function to generate them. Users will likely select to save figure .png files (see above). The table code saves individual XLSX documents.
+
+## Aside: Running the Code on a Mac {#sec-standalone-mac}
+
+Mac users may have varying levels of success loading the version-specific libraries with `renv::restore()`, depending on their usage of R and RStudio in the past on their machines. For myself, I programmed the app on a Windows machine. I downloaded the repository onto my home mac to see how it would go. It required some substantial effort to get things to run. I hope these pointers help. If they don't, Claude AI was moderately helpful.
+
+Note: You may need to perform configuration changes and load programs via the Mac Terminal window (I did not try the RStudio terminal to run these calls on my mac - it may function identically).
+
+Another note: My Mac has an Apple M4 chip and is running on the Sequoia 15.6 operating system. Different operating systems and chip sets may have different requirements.
+
+***Problem: OpenSSL***
+
+If you get a message that includes something like `configure: error: Failed to download OpenSSL sources from Apple. Please install OpenSSL headers before installing PKI.` The goal is to define the location of SSL headers for R. I recommend the following steps:
+
+Download the program [Homebrew](https://brew.sh/). The webpage has directions. Once installed, from the Terminal type:
+
+`brew install openssl`. R then needs to know where the SSL libraries are.\
+In the Terminal, type: `brew list openssl@3`. This provides paths for different SSL objects In R, I enter
+
+`Sys.setenv(LDFLAGS = "-L/opt/homebrew/Cellar/openssl@3/lib")` Your path (`/opt/homebrew/…/lib`) may differ.
+
+Then in R \>
+
+`Sys.setenv(CPPFLAGS = "-I/opt/homebrew/Cellar/openssl@3/include")`
+
+`Sys.setenv(PKG_CONFIG_PATH = "/opt/homebrew/Cellar/openssl@3/lib/pkgconfig")`
+
+`Sys.setenv(PKG_LIBS = "-L/opt/homebrew/Cellar/openssl@3/3.5.2/lib -lssl -lcrypto")`
+
+Try again in R \> `renv::restore()`
+
+***Problem: RVG***
+
+If you have trouble loading the package `rvg`, it could be because the `rvg` package needs the PNG development headers to compile. To fix, install the program `libpng` on the Mac: In the terminal, type `brew install libpng` Then:
+
+`echo 'export LDFLAGS="-L\$(brew --prefix)/lib \$LDFLAGS"' \>\> \~/.zshrc`
+
+`echo 'export CPPFLAGS="-I\$(brew --prefix)/include \$CPPFLAGS"' \>\> \~/.zshrc`
+
+`echo 'export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH" \>\> \~/.zshrc source \~/.zshrc'`
+
+This hopefully allows the `rvg` package to successfully load, or progress further in loading.
+
+***Problem: RVG and PNG***
+
+When I loaded `rvg` I received an error message that stated that the compiler couldn't find the `png.h` header file, even though I'd installed libpng with Homebrew. Claude gave me several workarounds to try. These steps worked for me:
+
+In the terminal, create the directory `.R` if it doesn’t exist: `mkdir -p ~/.R`
+
+Create/edit the Makevars file: `nano ~/.R/Makevars` .
+
+Now that the Nano editor is open, include the lines:
+
+`CPPFLAGS=-I/opt/homebrew/include` and
+
+`LDFLAGS=-L/opt/homebrew/lib` .
+
+(If you are using an Intel Mac, include these lines instead:
+
+`CPPFLAGS=-I/usr/local/include` and
+
+`LDFLAGS=-L/usr/local/lib`.)
+
+Close RStudio and open it up again, and give R the command `renv::restore()` again. Hopefully everything loads. If not, an AI may be able to help out with a workaround for the issue.
