@@ -6,7 +6,7 @@ Users provide a suite of folders that follow this format:
 
 ![Required structure of data input folders and the script control Excel file.](images/data_folders.png){#fig-files fig-alt="ALT"}
 
-Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year in their name, which is the user’s year of interest. This is important! The script will look for these files with these year.
+Notice that the parent folder is called “California 2020”. The subfolders with years in them (CSV Status, GRM CSV, LU) need to have the same year in their name, which is the user’s year of interest. This is important! The script will look for these files with this year.
 
 Be sure to include all of these folders! The code may get unhappy if they are missing. Include the folders but leave them empty if you have nothing to put in them (e.g., Annual_FMRL and LU 2020 may be specific to California and a few other states).
 
@@ -24,7 +24,7 @@ The table and figure scripts were built with flexibility in mind.\
 
 ### Data set features {#sec-dataprep-genctrl-datasetfeatures}
 
-The CSV files provided by FIA staff may have extremely long file names. The names are so long that we recommend that users save the files close to their root directory. This hopefully allows users the ability of opening the CSV files. It is necessary for users to open these files so that they can verify that the items listed in Script_Control.xlsx tabs are accurate or need updated. The code in the app is constructed to search for files using a unique string that is shorter than the actual file name.
+The CSV files provided by FIA staff may have extremely long file names. The names are so long that we recommend that users save the files close to their root directory. This hopefully allows users the ability of opening the CSV files. It is necessary for users to open these files so that they can verify that the items listed in Script_Control.xlsx tabs are accurate or need updating. The code in the app is constructed to search for files using a unique string that is shorter than the actual file name.
 
 ### Script control features {#sec-dataprep-genctrl-scriptctrl}
 
@@ -122,14 +122,14 @@ Ecoregions' average annual net $CO_2e$ flux by pool and owner, comparing finding
 - Like Fig4.2, 'Foliage' does not appear in the data set but did appear in earlier versions of this figure for California.
 
 *Fig4.6b*\
-Region forestland avera annual net $CO_2e$ flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.\
+Region forestland average annual net $CO_2e$ flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.\
 - POOL.COLOR: This column provides hexcode color values for carbon pools.
 
 *Fig4.8*\
 Region average forest carbon stock by owner, $CO_2e$.\
 - No other figure-specific columns.
 
-*Fig4.9_4.10* This tab provides information for the region's average carbon stock by poo and owner (Figure 4.9) and land status and owner (Figure 4.10).\
+*Fig4.9_4.10* This tab provides information for the region's average carbon stock by pool and owner (Figure 4.9) and land status and owner (Figure 4.10).\
 - Both figures rely on the same CSV data set.\
 - The columns POOL.LISTED1, POOL.LISTED2, POOL.USE, and POOL.ORD are used together but are not processed in the same fashion as other column sets (e.g., the OWNERS columns in this tab). POOL.LISTED1 and POOL.LISTED2 are used together to match with two columns in the CSV data in a `left_join()` function by the Fig4.9_4.10.R code.
 

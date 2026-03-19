@@ -12,11 +12,11 @@ The Forest Carbon Dashboard app is an R instance on the cloud.  When the app is 
 
 ## Uploading the zip folder {#sec-upld-zip}
 
-The R code behind the **Data Upload and Processing** is complex and covers many contingencies.  The user starts be ensuring that the radio button "Process new data (zip file)" is selected.  Then the user clicks the "Browse..." button and directs the app to the zip folder.  The zip folder is then uploaded to the R Shiny instance on Shinyapps.io.  The app will state that the upload is complete unless an error occurs.  
+The R code behind the **Data Upload and Processing** is complex and covers many contingencies.  The user starts by ensuring that the radio button "Process new data (zip file)" is selected.  Then the user clicks the "Browse..." button and directs the app to the zip folder.  The zip folder is then uploaded to the R Shiny instance on Shinyapps.io.  The app will state that the upload is complete unless an error occurs.  
 
 ![A screenshot (with purple text added) showing where to include HWP data if the user wishes.](images/upld-zip1.png){#fig-zip1 fig-alt="A screenshot of the 'Data Upload and Processing' tab where a zip file has been loaded and the user can decide to upload HWP data or proceed without doing so."}
 
-The user can decide (@fig-zip1) whether to include HWP data in the upload process or not.  If they click on the radio button they will be prompted to upload the HWP Excel data file (@fig-zip2).  Users should not change their mind about uploading the HWP data and just click "Run QC and create data file".  This will proceed to perform QC checks of the zipped folder data but will not allow the process to proceed.  This isn't a big deal; the solution is to reload the zip folder, or avoid the situation by unclicking the "Include HWP data processing" box.    
+The user can decide (@fig-zip1) whether to include HWP data in the upload process or not.  If they click on the radio button they will be prompted to upload the HWP Excel data file (@fig-zip2) and then to run the QC procedure.
 
 ![Screenshot of changes to the Data Upload and Processing tab when selecting to include HWP data.](images/upld-zip2.png){#fig-zip2 fig-alt="A screenshot of the 'Data Upload and Processing' tab where the user has selected to include HWP data."}
 
