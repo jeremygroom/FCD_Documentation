@@ -4,29 +4,72 @@
 
 ## FIA land classifications used in the dashboard tables and figures {#sec-intro-landclass}
 
-**Overview – **The Forest Carbon Dashboard provides a variety of carbon-related estimates by land use and ownership type.  The land-use type definitions are provided in Burrill et al. 2024 and Woudenberg et al. 2010.  Below we have detailed descriptions of each.  The top level is **forest land**, which is a broad category encompassing any land that FIA deems as ‘forest’.  Its counterpart is **non-forest land**, which only appears in tables that capture the acres that transition from forest land to non-forest land between plot visits.   
+**Overview –** The Forest Carbon Dashboard provides a variety of carbon-related estimates by land use and ownership type. The land-use type definitions are provided in Burrill et al. 2024 and Woudenberg et al. 2010. Below we have detailed descriptions of each. The top level is **forest land**, which is a broad category encompassing any land that FIA deems as ‘forest’. Its counterpart is **non-forest land**, which only appears in tables that capture the acres that transition from forest land to non-forest land between plot visits.
 
-There are overlapping and non-overlapping types of forest land.  Some is **productive forest land** and can produce trees worth harvesting.  High productivity land upon which harvest is permittable is referred to as **timberland**. Land that does not meet the definition of timberland falls into one of several categories of **other forest land**. **Low productivity forest land** is one type of other forest land that produces few valuable trees.    
+There are overlapping and non-overlapping types of forest land. Some is **productive forest land** and can produce trees worth harvesting. High productivity land upon which harvest is permittable is referred to as **timberland**. Land that does not meet the definition of timberland falls into one of several categories of **other forest land**. **Low productivity forest land** is one type of other forest land that produces few valuable trees.
 
-Some forest land is **reserved**, meaning that commercial harvest is not permitted.  All other forest land is **unreserved**. Reserved and unreserved land types may contain productivity classes.  For instance, ‘unreserved other’ or ‘unreserved low productivity’ are options, as is ‘reserved productive’ (which cannot be termed ‘timberland’ as ‘timberland’ specifically means land that can be harvested).   
+Some forest land is **reserved**, meaning that commercial harvest is not permitted. All other forest land is **unreserved**. Reserved and unreserved land types may contain productivity classes. For instance, ‘unreserved other’ or ‘unreserved low productivity’ are options, as is ‘reserved productive’ (which cannot be termed ‘timberland’ as ‘timberland’ specifically means land that can be harvested).
 
-**Forest land (Forest) – **At least 10 percent canopy cover by live tally trees of any size or has had at least 10 percent canopy cover of live tally species in the past, based on the presence of stumps, snags, or other evidence. To qualify, the area must be at least 1.0 acre in size and 120.0 feet wide. Forest land includes transition zones, such as areas between forest and nonforest lands that meet the minimal tree canopy cover and forest areas adjacent to urban and built-up lands. Roadside, streamside, and shelterbelt strips of trees must have a width of at least 120 feet and continuous length of at least 363 feet to qualify as forest land. Unimproved roads and trails, streams, and clearings in forest areas are classified as forest if they are less than 120 feet wide or less than an acre in size. Tree-covered areas in agricultural production settings, such as fruit orchards, or tree-covered areas in urban settings, such as city parks, are not considered forest land (Burrill et al. 2024).    
+**Forest land (Forest) –** At least 10 percent canopy cover by live tally trees of any size or has had at least 10 percent canopy cover of live tally species in the past, based on the presence of stumps, snags, or other evidence. To qualify, the area must be at least 1.0 acre in size and 120.0 feet wide. Forest land includes transition zones, such as areas between forest and nonforest lands that meet the minimal tree canopy cover and forest areas adjacent to urban and built-up lands. Roadside, streamside, and shelterbelt strips of trees must have a width of at least 120 feet and continuous length of at least 363 feet to qualify as forest land. Unimproved roads and trails, streams, and clearings in forest areas are classified as forest if they are less than 120 feet wide or less than an acre in size. Tree-covered areas in agricultural production settings, such as fruit orchards, or tree-covered areas in urban settings, such as city parks, are not considered forest land (Burrill et al. 2024).
 
-**Non-forest land (Non-forest) – **Land that has less than 10 percent canopy cover of tally tree species of any size and, in the case of afforested land, fewer than 150 established trees per acre; or land that has sufficient canopy cover or stems, but is classified as nonforest land use. Nonforest includes areas that have sufficient cover or live stems to meet the forest land definition, but do not meet the dimensional requirements (Burrill et al. 2024).    
+**Non-forest land (Non-forest) –** Land that has less than 10 percent canopy cover of tally tree species of any size and, in the case of afforested land, fewer than 150 established trees per acre; or land that has sufficient canopy cover or stems, but is classified as nonforest land use. Nonforest includes areas that have sufficient cover or live stems to meet the forest land definition, but do not meet the dimensional requirements (Burrill et al. 2024).
 
-**Timberland – **Forest land that is potentially capable of producing at least 20 cubic feet/acre/year at culmination in fully stocked, natural stands (1.4 cubic meters/hectare/year) of continuous crops of trees to industrial roundwood size and quality. Industrial roundwood requires species that grow to size and quality adequate to produce lumber and other manufactured products (exclude fence posts and fuel wood that are not considered manufactured). Timberland is characterized by no severe limitations on artificial or natural restocking with species capable of producing industrial roundwood. Timberland is not reserved forest land (see below; Woudenberg et al. 2010).    
+**Timberland –** Forest land that is potentially capable of producing at least 20 cubic feet/acre/year at culmination in fully stocked, natural stands (1.4 cubic meters/hectare/year) of continuous crops of trees to industrial roundwood size and quality. Industrial roundwood requires species that grow to size and quality adequate to produce lumber and other manufactured products (exclude fence posts and fuel wood that are not considered manufactured). Timberland is characterized by no severe limitations on artificial or natural restocking with species capable of producing industrial roundwood. Timberland is not reserved forest land (see below; Woudenberg et al. 2010).
 
-**Reserved forest land (Reserved) – **Reserved land is permanently prohibited from being managed for the production of wood products through statute or agency mandate; the prohibition cannot be changed through decision of the land manager. Logging may occur to meet protected area objectives. Examples include designated Federal wilderness areas, national parks and monuments, and most State parks. Reserved forest land may be designated as ‘reserved productive forest land’ and ‘reserved other forest land’ (see below; Burrill et al. 2024)   
+**Reserved forest land (Reserved) –** Reserved land is permanently prohibited from being managed for the production of wood products through statute or agency mandate; the prohibition cannot be changed through decision of the land manager. Logging may occur to meet protected area objectives. Examples include designated Federal wilderness areas, national parks and monuments, and most State parks. Reserved forest land may be designated as ‘reserved productive forest land’ and ‘reserved other forest land’ (see below; Burrill et al. 2024)
 
-**Unreserved forest land (Unreserved) – **Forest land that is not prohibited from being managed for the production of wood products. May be classified as Unreserved Timberland or Unreserved Other.    
+**Unreserved forest land (Unreserved) –** Forest land that is not prohibited from being managed for the production of wood products. May be classified as Unreserved Timberland or Unreserved Other.
 
-**Other forest land (Other)– **Forest land unable to attain timberland criteria. The reasons that forest land is categorized as “other” can differ.  Other forest land categorized as ‘low productivity’ or ‘unproductive forest land’ (see below) is one type of other forest land.   
+**Other forest land (Other)–** Forest land unable to attain timberland criteria. The reasons that forest land is categorized as “other” can differ. Other forest land categorized as ‘low productivity’ or ‘unproductive forest land’ (see below) is one type of other forest land.
 
-**Productive forest land (Productive) – **Forest land with the ability to grow more than 19 cubic feet/acre/year of industrial wood.  Productive forest land Is not necessarily the same as timberland; Reserved productive forest land is a possible designation (Burrill et al. 2024, Woudenberg et al. 2010).  
+**Productive forest land (Productive) –** Forest land with the ability to grow more than 19 cubic feet/acre/year of industrial wood. Productive forest land Is not necessarily the same as timberland; Reserved productive forest land is a possible designation (Burrill et al. 2024, Woudenberg et al. 2010).
 
-**Other Forest - Low productivity; Unproductive forest land** Forestland capable of growing crops of trees to industrial roundwood quality, but not able to grow wood at the rate of 20 cubic feet/acre/year. Included are areas of low stocking potential and/or very low site index. Categories such as ‘low productivity unreserved’ or ‘unproductive unreserved’ are possible (Woudenberg et al. 2010).    
+**Other Forest - Low productivity; Unproductive forest land** Forestland capable of growing crops of trees to industrial roundwood quality, but not able to grow wood at the rate of 20 cubic feet/acre/year. Included are areas of low stocking potential and/or very low site index. Categories such as ‘low productivity unreserved’ or ‘unproductive unreserved’ are possible (Woudenberg et al. 2010).
 
-Woudenberg, Sharon W.; Conkling, Barbara L.; O’Connell, Barbara M.; LaPoint, Elizabeth B.; Turner, Jeffery A.; Waddell, Karen L. 2010. The Forest Inventory and Analysis Database: Database description and users manual version 4.0 for Phase 2. Gen. Tech. Rep. RMRS-GTR-245. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. 336 p.
+## Acronym List {#sec-intro-acr}
 
-Burrill, Elizabeth A.; DiTommaso, Andrea M.; Turner, Jeffery A.; Pugh, Scott A.; Christensen, Glenn; Perry, Carol J.; Lepine, Lucie C.; Walker, David M.; Conkling, Barbara L. 2024. The Forest Inventory and Analysis Database, FIADB user guides, volume database description (version 9.2), nationwide forest inventory (NFI). U.S. Department of Agriculture, Forest Service. 1042 p. [Online]. Available at web address: https://www.fs.usda.gov/research/products/dataandtools/datasets/fia-datamart
+AGL – aboveground live\
+BF – board feet\
+BLM – Bureau of Land Management\
+C – carbon\
+CALFIRE – California Department of Forestry and Fire Protection\
+CF – cubic feet\
+CFPP – California Forest Project Protocol\
+CH₄ - methane\
+CI – confidence interval\
+CO - carbon monoxide\
+CO₂e – carbon dioxide equivalent\
+DBH – diameter at breast height\
+EPA – Environmental Protection Agency\
+FCAT – California Forest Climate Action Team\
+FCP – California Forest Carbon Plan\
+FF – Forest Land Remaining Forest (IPCC terminology)\
+FIA – Forest Inventory and Analysis\
+FIADB – FIA database\
+FMRL – Forest Management Reference Level\
+GRM – Growth, Removals and Mortality\
+HWP – harvested wood product\
+IPCC – Intergovernmental Panel on Climate Change\
+LULCF – Land-use, Land-use Change and Forestry (IPCC terminology)\
+MBF – thousand board feet\
+MMBF – million board feet\
+MMT – million metric tons\
+MT – metric tons\
+NO – nitrous oxide\
+NGHGI – National Greenhouse Gas Inventory\
+NMVOC – non-methane volatile organic compounds\
+NOx - nitrogen oxides\
+NRCS – Natural Resources Conservation Service\
+NRI – Natural Resources Inventory\
+PNW – Pacific Northwest Research Station\
+RCRA – Resource Conservation and Recovery Act of 1976\
+RPA – Resources Planning Act\
+SWDS – solid waste disposal site\
+UNFCCC – United Nations Framework Convention on Climate Change\
+USDA – United States Department of Agriculture\
+USDI – United States Department of Interior\
+USFS – United States Forest Service
 
+
+
+Burrill, Elizabeth A.; DiTommaso, Andrea M.; Turner, Jeffery A.; Pugh, Scott A.; Christensen, Glenn; Perry, Carol J.; Lepine, Lucie C.; Walker, David M.; Conkling, Barbara L. 2024. The Forest Inventory and Analysis Database, FIADB user guides, volume database description (version 9.2), nationwide forest inventory (NFI). U.S. Department of Agriculture, Forest Service. 1042 p. \[Online\]. Available at web address: https://www.fs.usda.gov/research/products/dataandtools/datasets/fia-datamart
