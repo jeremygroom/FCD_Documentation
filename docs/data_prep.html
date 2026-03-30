@@ -91,35 +91,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -325,7 +296,7 @@ Figure&nbsp;4.1: Required structure of data input folders and the script control
 <ul>
 <li><p>FIG.NAME: This applies to figure tabs only. This value is the name of the figure that is to be produced and saved by the code. This value affects users running the stand-alone code, not the app.</p></li>
 <li><p>INCREMENT: Some figure tabs have this column. It represents the plotting increment to use on the y axis.</p></li>
-<li><p>IS_CO2e: Yes/No.&nbsp;This applies to some figure tabs. The associated figure code has option for providing results in <span class="math inline">\(CO_2e\)</span> or <span class="math inline">\(CO_2\)</span>. The default setting is “Yes”, <span class="math inline">\(CO_2e\)</span>. This option was developed because previous versions of the figure were produced in <span class="math inline">\(CO_2\)</span> but current reporting metrics rely on <span class="math inline">\(CO_2e\)</span>.</p></li>
+<li><p>IS_CO2e: Yes/No.&nbsp;This applies to some figure tabs. The associated figure code has option for providing results in CO₂e or CO₂. The default setting is “Yes”, CO₂e. This option was developed because previous versions of the figure were produced in CO₂ but current reporting metrics rely on CO₂e.</p></li>
 <li><p>TAB.CAP: This applies to some tables. There may be a reference to repeated tables in the appendix in which case this option controls the appendix reference.</p></li>
 </ul>
 <p>Frequently for a table or figure tab there will be groups of three columns with a heading of _.LISTED, _.USE, _.ORDER (e.g., OWNER.LISTED, OWNER.USE, OWNER.ORDER) that are specific to the table or figure’s parent data set. One table or figure can have more than one of these sets of columns. The _.LISTED column indicates the values listed in a column that are of interest. The _.USE column allows the user to specify how the _.LISTED items are displayed (e.g., “Private Corporate” instead of “Corporate”). The ._ORDER column allows the user to specify the display order of the items in a figure; this column is not always present. Note that the _.USE and _.ORDER columns may repeat values for different _.LISTED values, as the table or figure script is combining these values.</p>
@@ -336,29 +307,29 @@ Figure&nbsp;4.1: Required structure of data input folders and the script control
 Percent of forest land base by landowner and reserve status.<br>
 - The columns ‘combine’ and ‘combine_order’ are used to lump certain combinations of ‘Ownership’, ‘ReservedStatus’, and ‘Forest Type’ with the category ‘Other Forest Land’. Some ownerships/reserved status combinations combine ‘Productive’ and ‘Timberland’ with ‘Other Forest Land’ and other combinations do not. These may be adjusted to suit user needs.<br>
 - FOR.TYPE.LISTED: Note that there may be formatting issues with the provided CSV listed forest types. The code attempts to sidestep these peculiarities. The figure-producing script (Fig2.4.R) and associated functions (Functions.R) should be able to produce a working version of this figure without the <code>\xb9</code> text in this column.</p>
-<p><em>Fig4.1</em> Region’s average annual net forestland <span class="math inline">\(CO_2e\)</span> flux by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+<p><em>Fig4.1</em> Region’s average annual net forestland CO₂e flux by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
 - No other figure-specific columns.</p>
 <p><em>Fig4.2</em><br>
-Region’s average annual net forestland <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region’s average annual net forestland CO₂e flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
 - POOL.LISTED: For California 2020 and 2021 data, the listed category ‘Foliage’ is not found by the QA, nor is it in the data set. It was present in earlier versions of the figure for California. The SC will still work and the figure will be plotted.</p>
 <p><em>Fig4.3</em><br>
-Region’s average annual net timberland <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region’s average annual net timberland CO₂e flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
 - No other figure-specific columns.</p>
 <p><em>Fig4.4a</em><br>
-Region’s forestland average annual net <span class="math inline">\(CO_2e\)</span> flux in above-ground live carbon by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region’s forestland average annual net CO₂e flux in above-ground live carbon by owner, comparing findings from the initial 10 years with most recent 10 years.<br>
 - No other figure-specific columns.</p>
 <p><em>Fig4.4b</em><br>
-Region’s timberland/reserved productive forestland average annual net <span class="math inline">\(CO_2e\)</span> flux in above-ground live carbon by ownership, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region’s timberland/reserved productive forestland average annual net CO₂e flux in above-ground live carbon by ownership, comparing findings from the initial 10 years with most recent 10 years.<br>
 - No other figure-specific columns.</p>
 <p><em>Fig4.6a</em><br>
-Ecoregions’ average annual net <span class="math inline">\(CO_2e\)</span> flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
+Ecoregions’ average annual net CO₂e flux by pool and owner, comparing findings from the initial 10 years with most recent 10 years.<br>
 - This figure relies on several different CSV files, one per ecoregion.<br>
 - Like Fig4.2, ‘Foliage’ does not appear in the data set but did appear in earlier versions of this figure for California.</p>
 <p><em>Fig4.6b</em><br>
-Region forestland average annual net <span class="math inline">\(CO_2e\)</span> flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region forestland average annual net CO₂e flux by ecoregion, comparing findings from the initial 10 years with most recent 10 years.<br>
 - POOL.COLOR: This column provides hexcode color values for carbon pools.</p>
 <p><em>Fig4.8</em><br>
-Region average forest carbon stock by owner, <span class="math inline">\(CO_2e\)</span>.<br>
+Region average forest carbon stock by owner, CO₂e.<br>
 - No other figure-specific columns.</p>
 <p><em>Fig4.9_4.10</em> This tab provides information for the region’s average carbon stock by pool and owner (Figure 4.9) and land status and owner (Figure 4.10).<br>
 - Both figures rely on the same CSV data set.<br>
@@ -369,29 +340,29 @@ Region average forest carbon stock by land status and ecoregion.<br>
 <p><em>Fig4.12</em><br>
 Region average carbon stock by pool and forest type.<br>
 - This tab is used to inform/produce Figure 4.12 as well as the ecoregion figures for A1.x.1 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.1 in <span class="citation" data-cites="christensen2019ab">Christensen et al. (<a href="references.html#ref-christensen2019ab" role="doc-biblioref">2021</a>)</span>). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.<br>
-- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
+- The script produces two figures, one for CO₂e and the other for CO₂.</p>
 <p><em>Fig4.13</em><br>
-Region average carbon stock by land status and forest type, metric tons <span class="math inline">\(CO_2\)</span> and <span class="math inline">\(CO_2e\)</span> per acre.<br>
+Region average carbon stock by land status and forest type, metric tons CO₂ and CO₂e per acre.<br>
 - This tab is used to inform/produce Figure 4.13 as well as the ecoregion figures for A1.x.2 (x = ecoregion number, the combination references Appendix section A1, figure A1.x.2 in <span class="citation" data-cites="christensen2019ab">Christensen et al. (<a href="references.html#ref-christensen2019ab" role="doc-biblioref">2021</a>)</span>). Under DAT.FILE the first file listed is for the entire region, the others reference specific ecoregions. Be sure the Global tab ecoregion order matches the order of ecoregion files under DAT.FILE.<br>
-- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
-<p><em>Fig4.14</em> Region carbon density by pool and forest type, metric tons <span class="math inline">\(CO_2\)</span> and <span class="math inline">\(CO_2e\)</span> per acre.<br>
+- The script produces two figures, one for CO₂e and the other for CO₂.</p>
+<p><em>Fig4.14</em> Region carbon density by pool and forest type, metric tons CO₂ and CO₂e per acre.<br>
 - DAT.FILE: A carbon accounting CSV file and acreage data file are used to calculate metric tons per acre.<br>
-- The script produces two figures, one for <span class="math inline">\(CO_2e\)</span> and the other for <span class="math inline">\(CO_2\)</span>.</p>
+- The script produces two figures, one for CO₂e and the other for CO₂.</p>
 </section>
 <section id="specific-table-information" class="level4" data-number="4.3.4.2">
 <h4 data-number="4.3.4.2" class="anchored" data-anchor-id="specific-table-information"><span class="header-section-number">4.3.4.2</span> Specific Table Information</h4>
 <p>Below are descriptions of each table and table-specific settings.</p>
 <p><em>Tab4.1</em><br>
-Region average annual net <span class="math inline">\(CO_2e\)</span> flux from forest pools in forest land remaining forest land, comparing findings from the initial 10 years with most recent 10 years.<br>
+Region average annual net CO₂e flux from forest pools in forest land remaining forest land, comparing findings from the initial 10 years with most recent 10 years.<br>
 - NET.REMOVE: This value can be blank. In 2020 the California data set included a carbon pool value labeled ‘NET FLUX’. That row was not needed and was removed. Therefore, this entry serves to remove up to one carbon pool.</p>
 <p><em>Tab4.2a</em><br>
-Region average annual net <span class="math inline">\(CO_2e\)</span> flux from forest pools, non-<span class="math inline">\(CO_2\)</span> emissions from forest fires in forest remaining forest land, and changes due to forest land conversion. The table compares findings from the initial 10 years with most recent 10 years.<br>
+Region average annual net CO₂e flux from forest pools, non-CO₂ emissions from forest fires in forest remaining forest land, and changes due to forest land conversion. The table compares findings from the initial 10 years with most recent 10 years.<br>
 - DAT.FILE, DAT.TABLE.LOC: Two separate tables are required, one from the LU folder.</p>
 <p><em>Tab4.2b</em><br>
-Average annual net <span class="math inline">\(CO_2e\)</span> flux from forest ecosystem pools and non-CO2 emissions from forest fires in Forest land remaining forest land.<br>
+Average annual net CO₂e flux from forest ecosystem pools and non-CO₂ emissions from forest fires in Forest land remaining forest land.<br>
 - POOL4.2b.FPD.LEVELS: Note that the first entry here is “Forest Practice District”. See the associated table; this row will be blank. This column is not associated with the other POOL columns directly which is why it is OK that its length is or can be different.</p>
 <p><em>Tab4.3</em><br>
-Region-wide estimate of average annual net carbon flux in <span class="math inline">\(CO_2e\)</span> by pools and owner. Changes in <span class="math inline">\(CO_2e\)</span> due to land-use and non-<span class="math inline">\(CO_2\)</span> greenhouse gas emissions are not included. The table compares findings from the initial 10 years with most recent 10 years.<br>
+Region-wide estimate of average annual net carbon flux in CO₂e by pools and owner. Changes in CO₂e due to land-use and non-CO₂ greenhouse gas emissions are not included. The table compares findings from the initial 10 years with most recent 10 years.<br>
 - No other table-specific columns.</p>
 <p><em>Tab4.6</em><br>
 This tab controls the creation of 4+ tables: Average Annual Net Change in Carbon Stocks for Aboveground Pools on Forest Land by Disturbance, Forest Land Status and Owner Group by:<br>
@@ -402,7 +373,7 @@ This tab controls the creation of 4+ tables: Average Annual Net Change in Carbon
 - DAT.FILE: The order of data files is Region (State), County, National Forests, and then one per Forest Practice District or equivalent. - REG.COUNTIES.APP.TABLE.4.6 is a reference list that should probably have been listed as TAB.CAP. See TAB.CAP, above.<br>
 - _.LEVELS columns are the ordered values from different columns. Users should be sure that their respective data column levels are captured here. There was not an effort to clean up displayed level names; names from the CSV file are used.</p>
 <p><em>Tab4.7</em><br>
-Annual Net Emissions of Non-<span class="math inline">\(CO_2\)</span> Greenhouse Gases from Fire; actually includes <span class="math inline">\(CO_2\)</span>.<br>
+Annual Net Emissions of Non-CO₂ Greenhouse Gases from Fire; actually includes CO₂.<br>
 - The script sources Tab4.6.R because it combines information from that table with the CSV file listed for this table.<br>
 - GENOWNER._, OWNER._, TYPE_ columns: These four columns are used together. The table has two ‘Total’ columns, one for private forest and one for everything (in the script this is referred to as the ‘Gen.Total’). The blank cells are filled in by the script as ‘Gen.Total’. This could be confusing, but the user should examine Table 4.7, this tab, and their CSV table and ensure that everything lines up. If not, the user should make adjustments to the values in this tab accordingly.</p>
 <p><em>Tab4.8</em><br>
@@ -418,7 +389,7 @@ Area of forest land remaining forest land by ownership group and region.<br>
 Area of Forest Land by Forest Type, Owner Group and Forest Land Status for the entire region.<br>
 - No other table-specific columns.</p>
 <p><em>Tab4.12</em><br>
-This tab controls the creation of 4+ tables: Forest land carbon stock by ownership and land status, where results in MMT <span class="math inline">\(CO_2e\)</span> and thousand acres by:<br>
+This tab controls the creation of 4+ tables: Forest land carbon stock by ownership and land status, where results in MMT CO₂e and thousand acres by:<br>
 * The entire region<br>
 * All counties<br>
 * All national forests<br>

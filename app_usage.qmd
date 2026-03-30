@@ -14,7 +14,7 @@ If users upload their own data to the app, they can select between California da
 
 The **Figures** tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.
 
-Each sub-tab also provides buttons that allow users to download a .png image file (*Download PNG*), an RDS file (*Download RDS*), or a Microsoft Excel data file (*Download Data (xlsx)*) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for "R Data Structure", and in this case it contains the ggplot object (package ggplot2, [@wickham2016]). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.
+Each sub-tab also provides buttons that allow users to download a .png image file (*Download PNG*), an RDS file (*Download RDS*), or a Microsoft Excel data file (*Download Data (xlsx)*) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for "R Data Structure", and in this case it contains the ggplot object (package ggplot2, @wickham2016). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.
 
 The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.
 
