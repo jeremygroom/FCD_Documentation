@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Dashboard Summary and Use – Forest Carbon Dashboard Documentation</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +56,14 @@ div.csl-indent {
 <link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,9 +117,7 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Forest Carbon Dashboard Documentation</a> 
     </div>
@@ -234,13 +233,14 @@ div.csl-indent {
 <section id="sec-dboarduse-figs" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-dboarduse-figs"><span class="header-section-number">3.2</span> Figures</h2>
 <p>The <strong>Figures</strong> tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus that provide different but related figures.</p>
-<p>Each sub-tab also provides buttons that allow users to download a .png image file (<em>Download PNG</em>), an RDS file (<em>Download RDS</em>), or a Microsoft Excel data file (<em>Download Data (xlsx)</em>) of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for “R Data Structure”, and in this case it contains the ggplot object (package ggplot2, <span class="citation" data-cites="wickham2016">Wickham (<a href="references.html#ref-wickham2016" role="doc-biblioref">2016</a>)</span>). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.</p>
+<p>Each sub-tab also provides buttons that allow users to download a .png image file (<em>Download PNG</em>), an RDS file (<em>Download RDS</em>), a Microsoft Excel data file (<em>Download Data (xlsx)</em>), and metadata of the figure. The image file is the figure and caption as it appears. Users may want to alter the figure to meet their needs, however. In that case, they could be interested in downloading the RDS file of the figure. RDS stands for “R Data Structure”, and in this case it contains the ggplot object (package ggplot2, <span class="citation" data-cites="wickham2016">Wickham (<a href="references.html#ref-wickham2016" role="doc-biblioref">2016</a>)</span>). If the user downloads the RDS file and loads it into R, they can manipulate it like any other ggplot object.</p>
 <p>The user can download the Excel file to view data, see exact values, and to plot the data using their own preferred approaches.</p>
+<p>The metadata contains information about the generation of the figure. This information can be useful for input file examination and deeper debugging efforts. The metadata lists which Shiny app tab generated the figure or table of interest, the output file name prefix (“Figure shorthand name:” or “Table shorthand name:”), the state or region examined, and the data year. The metadata also lists the Excel tab label that controls the origination and appearance of the figure or table (“Script Control Tab:”, see <a href="data_prep.html#sec-dataprep-genctrl-scriptctrl" class="quarto-xref"><span>Section 4.3.2</span></a>), the specific R code that generates the table or figure (“Figure R code:” or “Table R code”), the location of the raw CSV data file (“Data Folder:”, see <a href="data_prep.html#sec-dataprep-folder" class="quarto-xref"><span>Section 4.1</span></a>), and a unique text identifier of the CSV file name (“Data File ID text:”, see <a href="data_prep.html#sec-dataprep-figtablesettings" class="quarto-xref"><span>Section 4.3.4</span></a>). In the event that a user loads their own data into the app and the specific table or figure of interest fails to appear, we recommend returning to the California data set and downloading the metadata for that table or figure. This can provide the user with information for locating the issue; e.g., the unique CSV text identifier may be misspecified or there could be an error with the raw CSV data.</p>
 </section>
 <section id="sec-dboarduse-tables" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-dboarduse-tables"><span class="header-section-number">3.3</span> Tables</h2>
 <p>Like the <strong>Figures</strong> tab, the <strong>Tables</strong> tab offers different sub-tabs to explore the forest carbon data. Each sub-tab has different pull-down menus providing related tables.</p>
-<p>Below each displayed table are two buttons, <em>Download CSV</em> and <em>Download DOCX</em>. The Download CSV button allows users to download the compiled and arranged data table that was used to construct the table in the app. The user can plot those data, manipulate them, or create their own table. The <em>Download DOCX</em> button will download a single Microsoft Word document that contains the table. Users can edit the contents of the table.</p>
+<p>Below each displayed table are three buttons, <em>Download CSV</em>, <em>Download DOCX</em>, and <em>Download Metadata</em>. The Download CSV button allows users to download the compiled and arranged data table that was used to construct the table in the app. The user can plot those data, manipulate them, or create their own table. The <em>Download DOCX</em> button will download a single Microsoft Word document that contains the table. Users can edit the contents of the table. The metadata file is the same as listed above for figures, although it provides additional information if the table integrates HWP findings. It will identify that the table uses HWP data (“HWP Table”) and indicate the <a href="https://jeremygroom.github.io/HWP-vR-Documentation/own.html#own-tables">HWP source table</a> used.</p>
 <p>All tables were created using the R package flextable by <span class="citation" data-cites="flextable2024">Gohel and Skintzos (<a href="references.html#ref-flextable2024" role="doc-biblioref">2024</a>)</span>. The package officer by <span class="citation" data-cites="officer2024">Gohel and Moog (<a href="references.html#ref-officer2024" role="doc-biblioref">2024</a>)</span> enabled saving output as word documents.</p>
 </section>
 <section id="sec-dboarduse-docdnld" class="level2" data-number="3.4">
@@ -256,7 +256,7 @@ div.csl-indent {
 <p>This tab provides the contact information for the app creator, Jeremy Groom (<a href="http://www.groomanalytics.com">Groom Analytics LLC</a>) and his coauthor and project lead, Nadia Tase (<a href="https://www.fire.ca.gov/">California Department of Forestry and Fire Protection</a>). Please reach out to Jeremy if you have technical questions about the dashboard, datasets, accessibility issues, or bugs.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-officer2024" class="csl-entry" role="listitem">
 Gohel, David, and Stefan Moog. 2024. <em>Officer: Manipulation of Microsoft Word and PowerPoint Documents</em>. <a href="https://CRAN.R-project.org/package=officer">https://CRAN.R-project.org/package=officer</a>.
 </div>

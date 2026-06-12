@@ -1,7 +1,5 @@
 # Introduction {#sec-intro}
 
-## Some Intro Text {#sec-intro-text}
-
 ## FIA land classifications used in the dashboard tables and figures {#sec-intro-landclass}
 
 **Overview –** The Forest Carbon Dashboard provides a variety of carbon-related estimates by land use and ownership type. The land-use type definitions are provided in @burrill2024 and @woudenberg2010. Below we have detailed descriptions of each. The top level is **forest land**, which is a broad category encompassing any land that FIA deems as ‘forest’. Its counterpart is **non-forest land**, which only appears in tables that capture the acres that transition from forest land to non-forest land between plot visits.

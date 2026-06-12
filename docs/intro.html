@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>2&nbsp; Introduction – Forest Carbon Dashboard Documentation</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +56,14 @@ div.csl-indent {
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,9 +117,7 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Forest Carbon Dashboard Documentation</a> 
     </div>
@@ -194,9 +193,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-intro-text" id="toc-sec-intro-text" class="nav-link active" data-scroll-target="#sec-intro-text"><span class="header-section-number">2.1</span> Some Intro Text</a></li>
-  <li><a href="#sec-intro-landclass" id="toc-sec-intro-landclass" class="nav-link" data-scroll-target="#sec-intro-landclass"><span class="header-section-number">2.2</span> FIA land classifications used in the dashboard tables and figures</a></li>
-  <li><a href="#sec-intro-acr" id="toc-sec-intro-acr" class="nav-link" data-scroll-target="#sec-intro-acr"><span class="header-section-number">2.3</span> Acronym List</a></li>
+  <li><a href="#sec-intro-landclass" id="toc-sec-intro-landclass" class="nav-link active" data-scroll-target="#sec-intro-landclass"><span class="header-section-number">2.1</span> FIA land classifications used in the dashboard tables and figures</a></li>
+  <li><a href="#sec-intro-acr" id="toc-sec-intro-acr" class="nav-link" data-scroll-target="#sec-intro-acr"><span class="header-section-number">2.2</span> Acronym List</a></li>
   </ul>
 </nav>
     </div>
@@ -222,11 +220,8 @@ div.csl-indent {
 </header>
 
 
-<section id="sec-intro-text" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sec-intro-text"><span class="header-section-number">2.1</span> Some Intro Text</h2>
-</section>
-<section id="sec-intro-landclass" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="sec-intro-landclass"><span class="header-section-number">2.2</span> FIA land classifications used in the dashboard tables and figures</h2>
+<section id="sec-intro-landclass" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-intro-landclass"><span class="header-section-number">2.1</span> FIA land classifications used in the dashboard tables and figures</h2>
 <p><strong>Overview –</strong> The Forest Carbon Dashboard provides a variety of carbon-related estimates by land use and ownership type. The land-use type definitions are provided in <span class="citation" data-cites="burrill2024">Burrill et al. (<a href="references.html#ref-burrill2024" role="doc-biblioref">2024</a>)</span> and <span class="citation" data-cites="woudenberg2010">Woudenberg et al. (<a href="references.html#ref-woudenberg2010" role="doc-biblioref">2010</a>)</span>. Below we have detailed descriptions of each. The top level is <strong>forest land</strong>, which is a broad category encompassing any land that FIA deems as ‘forest’. Its counterpart is <strong>non-forest land</strong>, which only appears in tables that capture the acres that transition from forest land to non-forest land between plot visits.</p>
 <p>There are overlapping and non-overlapping types of forest land. Some is <strong>productive forest land</strong> and can produce trees worth harvesting. High productivity land upon which harvest is permittable is referred to as <strong>timberland</strong>. Land that does not meet the definition of timberland falls into one of several categories of <strong>other forest land</strong>. <strong>Low productivity forest land</strong> is one type of other forest land that produces few valuable trees.</p>
 <p>Some forest land is <strong>reserved</strong>, meaning that commercial harvest is not permitted. All other forest land is <strong>unreserved</strong>. Reserved and unreserved land types may contain productivity classes. For instance, ‘unreserved other’ or ‘unreserved low productivity’ are options, as is ‘reserved productive’ (which cannot be termed ‘timberland’ as ‘timberland’ specifically means land that can be harvested).</p>
@@ -239,8 +234,8 @@ div.csl-indent {
 <p><strong>Productive forest land (Productive) –</strong> Forest land with the ability to grow more than 19 cubic feet/acre/year of industrial wood. Productive forest land Is not necessarily the same as timberland; Reserved productive forest land is a possible designation (<span class="citation" data-cites="burrill2024">Burrill et al. (<a href="references.html#ref-burrill2024" role="doc-biblioref">2024</a>)</span>, <span class="citation" data-cites="woudenberg2010">Woudenberg et al. (<a href="references.html#ref-woudenberg2010" role="doc-biblioref">2010</a>)</span>).</p>
 <p><strong>Other Forest - Low productivity; Unproductive forest land</strong> Forestland capable of growing crops of trees to industrial roundwood quality, but not able to grow wood at the rate of 20 cubic feet/acre/year. Included are areas of low stocking potential and/or very low site index. Categories such as ‘low productivity unreserved’ or ‘unproductive unreserved’ are possible <span class="citation" data-cites="woudenberg2010">(<a href="references.html#ref-woudenberg2010" role="doc-biblioref">Woudenberg et al. 2010</a>)</span>.</p>
 </section>
-<section id="sec-intro-acr" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sec-intro-acr"><span class="header-section-number">2.3</span> Acronym List</h2>
+<section id="sec-intro-acr" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-intro-acr"><span class="header-section-number">2.2</span> Acronym List</h2>
 <p>AGL – aboveground live<br>
 BF – board feet<br>
 BLM – Bureau of Land Management<br>
@@ -284,9 +279,9 @@ USDI – United States Department of Interior<br>
 USFS – United States Forest Service</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-burrill2024" class="csl-entry" role="listitem">
-Burrill, Elizabeth A, Andrea M DiTommaso, Jeffery A Turner, Scott A Pugh, Glenn Christensen, Carol J Perry, Lucie C Lepine, David M Walker, and Barbara L Conkling. 2024. <span>“The Forest Inventory and Analysis Database, FIADB User Guides, Volume Database Description (Version 9.2), Nationwide Forest Inventory (NFI).”</span> <em>US Department of Agriculture, Forest Service</em>, 1042.
+Burrill, Elizabeth A, Andrea M DiTommaso, Jeffery A Turner, et al. 2024. <span>“The Forest Inventory and Analysis Database, FIADB User Guides, Volume Database Description (Version 9.2), Nationwide Forest Inventory (NFI).”</span> <em>US Department of Agriculture, Forest Service</em>, 1042.
 </div>
 <div id="ref-woudenberg2010" class="csl-entry" role="listitem">
 Woudenberg, Sharon W, Barbara L Conkling, Barbara M O’Connell, Elizabeth B LaPoint, Jeffery A Turner, and Karen L Waddell. 2010. <span>“The Forest Inventory and Analysis Database: Database Description and Users Manual Version 4.0 for Phase 2.”</span> <em>Gen. Tech. Rep. RMRS-GTR-245. Fort Collins, CO: US Department of Agriculture, Forest Service, Rocky Mountain Research Station. 336 p.</em> 245.
